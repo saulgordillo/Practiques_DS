@@ -1,0 +1,43 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class App {
+
+}
+
+class Task {
+
+}
+class Project {
+
+}
+
+class Interval {
+
+}
+
+class Data {
+    save_data()
+    load_data()
+}
+
+'observer
+package java.util{
+    abstract Observable
+    interface Observer
+    Observable --> Observer : observers
+}
+
+'composite
+Project --|> App
+Project "1" --* "n" Project
+Task "n" --* "1" Project
+Task --|> App
+Interval "n" --* "1" Task
+'observer
+App --> Observable
+
+'composite + observer
+'linked lists ?
+
+@enduml
