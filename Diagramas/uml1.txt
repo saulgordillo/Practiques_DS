@@ -1,0 +1,21 @@
+@startuml
+package java.util{
+ abstract Observable
+ interface Observer
+ Observable --> Observer : observers
+}
+Abstract Graphic
+class Container
+class Project
+class Task
+class Duration
+Duration "n" --* "1" Task : intervals
+Project "1" --* "n" Project
+Task "n" --* "1" Project 
+Project --> Graphic
+Container --> Graphic
+Graphic --* Container : graphics
+Graphic --> Observer
+class LocalDateTime
+LocalDateTime --> Observable
+@enduml
