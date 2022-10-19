@@ -1,4 +1,5 @@
-import java.util.Observer;
+import java.time.LocalDateTime;
 
 public class Interval {
+    private LocalDateTime interval;
 }
