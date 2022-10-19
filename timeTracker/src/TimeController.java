@@ -1,14 +1,14 @@
-import java.time.LocalDateTime;
+
 import java.util.Timer;
+import java.util.TimerTask;
 
 public class TimeController {
-    public LocalDateTime dateTime;
+    public TimerTask dateTime;
     public Timer timer;
 
 
     private void tick()
     {
-        dateTime = LocalDateTime.now();
 
     }
 }
