@@ -9,6 +9,6 @@ public class TimeController {
     private void tick()
     {
         dateTime = LocalDateTime.now();
-        
+
     }
 }
