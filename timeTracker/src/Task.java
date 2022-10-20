@@ -3,6 +3,16 @@ import java.util.List;
 public class Task extends Activity{
     private List<Interval> intervals;
 
+    public Task()
+    {
+        this.name="";
+        this.projectFather=null;
+    }
+    public Task(String name, Project father)
+    {
+
+    }
+
     public void duration() {
         for (int i=0; i<intervals.size(); i++)
         {
@@ -15,5 +25,16 @@ public class Task extends Activity{
     public void initHours() {
         this.initialHour = intervals.get(0).getInferior();
         this.finalHour = intervals.get(intervals.size()-1).getSuperior();
+    }
+
+    //methods serves to test the abstract system
+    public void whoAmI()
+    {
+        System.out.print("I am a Task");
+    }
+
+    public void printName()
+    {
+        System.out.print(name);
     }
 }

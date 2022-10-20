@@ -8,6 +8,26 @@ abstract public class Activity {
 
     Project projectFather;
 
+    public Activity()
+    {
+        this.name="";
+        this.projectFather=null;
+    }
+    public Activity(Activity aux)
+    {
+        this.name= aux.name;
+        this.projectFather=aux.projectFather;
+    }
+    public Activity(String name, Project father)
+    {
+        this.name = name;
+        this.projectFather = father;
+    }
+
+    public Activity myFather()
+    {
+        return this.projectFather;
+    }
 
     public abstract void duration();
 }
