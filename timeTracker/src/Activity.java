@@ -23,11 +23,17 @@ abstract public class Activity {
         this.name = name;
         this.projectFather = father;
     }
+    abstract void whoAmI();
+    public abstract void duration();
+
+    public Project getProjectFather(){ return this.projectFather; }
+    public void printName()
+    {
+        System.out.print(this.name);
+    }
 
     public Activity myFather()
     {
         return this.projectFather;
     }
-
-    public abstract void duration();
 }

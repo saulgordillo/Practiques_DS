@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Project extends Activity {
@@ -8,12 +9,15 @@ public class Project extends Activity {
     {
         this.name = "";
         this.projectFather = null;
+        this.projects = new ArrayList<Activity>();
     }
 
     public Project(String name, Project father)
     {
         this.name = name;
         this.projectFather = father;
+        this.projects = new ArrayList<Activity>();
+
     }
     public void addChild(Activity child)
     {
@@ -29,13 +33,17 @@ public class Project extends Activity {
 
     }
     //this methods test all the methods and abstract system.
-    public void printName()
-    {
-        System.out.print(this.name);
-    }
-
     public void whoAmI()
     {
         System.out.println("I am a project");
+    }
+    public void drawSons()
+    {
+        int i = 0;
+        while(i < projects.size())
+        {
+            System.out.print(projects.get(i).name + "\n");
+            i = i + 1;
+        }
     }
 }

@@ -3,20 +3,16 @@ public class Main {
 
         Project p1 = new Project("p1",null);
         Task t1 = new Task("t1", p1);
+        Project p2 = new Project("p2", p1);
+        Task t2 = new Task("t2", p2);
+        Task t3 = new Task("t3", p2);
 
-        p1.printName();
-
-        System.out.print("\n");
-
-        p1.whoAmI();
-
-        t1.printName();
-
-        System.out.print("\n");
-
-        t1.whoAmI();
+        //Let's look if all the connexions are ok
+        p1.addChild(t1);
+        p1.addChild(p2);
 
 
+        p1.drawSons();
 
     }
 }

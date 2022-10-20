@@ -10,7 +10,8 @@ public class Task extends Activity{
     }
     public Task(String name, Project father)
     {
-
+        this.name = name;
+        this.projectFather = father;
     }
 
     public void duration() {
@@ -33,8 +34,4 @@ public class Task extends Activity{
         System.out.print("I am a Task");
     }
 
-    public void printName()
-    {
-        System.out.print(name);
-    }
 }
