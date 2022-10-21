@@ -2,7 +2,6 @@ import java.time.LocalDateTime;
 import java.util.Observable;
 
 public class TimeController extends Observable {
-  private static TimeController uniqueInstanceTimeController = null;
   public LocalDateTime dateTimeNow;
 
   private TimeController() {
@@ -10,6 +9,8 @@ public class TimeController extends Observable {
   }
 
   // Singleton pattern
+  private static TimeController uniqueInstanceTimeController = null;
+
   public static TimeController getInstance() {
     if (uniqueInstanceTimeController == null) {
       uniqueInstanceTimeController = new TimeController();
