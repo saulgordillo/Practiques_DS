@@ -9,6 +9,7 @@ public class TimeController extends Observable {
     dateTimeNow = LocalDateTime.now();
   }
 
+  // Singleton pattern
   public static TimeController getInstance() {
     if (uniqueInstanceTimeController == null) {
       uniqueInstanceTimeController = new TimeController();
