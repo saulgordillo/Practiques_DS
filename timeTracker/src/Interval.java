@@ -1,46 +1,30 @@
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.Observable;
 import java.util.Observer;
 
 public class Interval implements Observer {
-  private LocalDateTime inferior;
-  private LocalDateTime superior;
+  private LocalDateTime initialDate = null;
+  private LocalDateTime finalDate = null;
 
-  public LocalDateTime getInferior() {
-    return inferior;
+  public LocalDateTime getInitialDate() {
+    return initialDate;
   }
 
-  public LocalDateTime getSuperior() {
-    return superior;
+  public LocalDateTime getFinalDate() {
+    return finalDate;
   }
 
-  public LocalDateTime getInterval() {
-    LocalDateTime result = superior;
-    result.minusHours(inferior.getHour());
-    result.minusMinutes(inferior.getMinute());
-    result.minusSeconds(inferior.getSecond());
-    return result;
-  }
-
-  public int getIntervalHour() {
-    LocalDateTime res = getInterval();
-
-    return res.getHour();
-  }
-
-  public int getIntervalMinute() {
-    LocalDateTime res = getInterval();
-
-    return res.getMinute();
-  }
-
-  public int getIntervalSecond() {
-    LocalDateTime res = getInterval();
-
-    return res.getSecond();
+  public Duration calculateInterval() {
+    Duration interval = Duration.between(initialDate, finalDate);
+    return interval;
   }
 
   public void update(Observable observable, Object object) {
+    if (initialDate == null) {
+      initialDate = (LocalDateTime) object;
+    }
 
+    finalDate = (LocalDateTime) object;
   }
 }

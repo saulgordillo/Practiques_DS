@@ -1,12 +1,12 @@
+import java.time.LocalDateTime;
 import java.util.Observable;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class TimeController extends Observable {
-  public TimerTask dateTime;
-  public Timer timer;
+  public LocalDateTime dateTimeNow;
 
   private void tick() {
-
+    dateTimeNow = LocalDateTime.now();
+    setChanged();
+    notifyObservers(dateTimeNow);
   }
 }
