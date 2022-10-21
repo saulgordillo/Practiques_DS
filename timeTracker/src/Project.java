@@ -17,6 +17,11 @@ public class Project extends Activity {
         this.name = name;
         this.projectFather = father;
         this.projects = new ArrayList<Activity>();
+        if(father != null)
+        {
+            father.addChild(this);
+        }
+
 
     }
     public void addChild(Activity child)

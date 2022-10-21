@@ -8,11 +8,14 @@ public class Main {
         Task t3 = new Task("t3", p2);
 
         //Let's look if all the connexions are ok
-        p1.addChild(t1);
-        p1.addChild(p2);
+        //p1.addChild(t1);
+        //p1.addChild(p2);
 
+        //p2.addChild(t2);
+        //p2.addChild(t3);
 
         p1.drawSons();
+        p2.drawSons();
 
     }
 }

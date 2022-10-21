@@ -23,6 +23,10 @@ abstract public class Activity {
         this.name = name;
         this.projectFather = father;
     }
+    //abstract void addChild(Activity child);
+
+    //Methods unneeded
+
     abstract void whoAmI();
     public abstract void duration();
 

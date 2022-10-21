@@ -12,6 +12,8 @@ public class Task extends Activity{
     {
         this.name = name;
         this.projectFather = father;
+        father.addChild(this);
+
     }
 
     public void duration() {
