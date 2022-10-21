@@ -30,4 +30,15 @@ public class Task extends Activity {
     System.out.print("I am a Task");
   }
 
+  public void start() {
+    Interval newInterval = new Interval();
+    intervals.add(newInterval);
+    TimeController timeControllerInstance = TimeController.getInstance();
+    timeControllerInstance.addObserver(newInterval);
+  }
+
+  public void stop() {
+    TimeController timeControllerInstance = TimeController.getInstance();
+    timeControllerInstance.deleteObserver(intervals.get(intervals.size() - 1));
+  }
 }
