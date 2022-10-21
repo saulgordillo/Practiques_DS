@@ -24,6 +24,16 @@ abstract public class Activity {
         this.projectFather = father;
     }
     //abstract void addChild(Activity child);
+    public void printThree(Activity node)
+    {
+        if(node.projectFather != null)
+        {
+            printThree(node.projectFather);
+        }
+        node.printName();
+    }
+
+
 
     //Methods unneeded
 
@@ -33,7 +43,7 @@ abstract public class Activity {
     public Project getProjectFather(){ return this.projectFather; }
     public void printName()
     {
-        System.out.print(this.name);
+        System.out.print(this.name); System.out.print("\n");
     }
 
     public Activity myFather()

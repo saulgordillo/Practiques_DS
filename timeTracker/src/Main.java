@@ -17,5 +17,7 @@ public class Main {
         p1.drawSons();
         p2.drawSons();
 
+        t3.printThree(t3);
+
     }
 }
