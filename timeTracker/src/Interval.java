@@ -31,8 +31,8 @@ public class Interval implements Observer {
       initialDate = (LocalDateTime) object;
     }
     finalDate = (LocalDateTime) object;
-    Duration aux = this.calculateInterval();
-    myTask.addTime(aux);
+    Duration intervalActual = this.calculateInterval();
+    myTask.addTime(intervalActual);
 
   }
 }
