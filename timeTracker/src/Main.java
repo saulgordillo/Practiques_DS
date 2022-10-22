@@ -1,6 +1,12 @@
 public class Main {
     public static void main(String[] args) {
 
+        //Project softeare_desgin = new Project("software desgin", null);
+        //Project software_testing = new Project("software testing", null);
+        //Project database = new Project("database", null);
+        //Project transportation = new Project("software_desgin", null);
+
+
         Project p1 = new Project("p1",null);
         Task t1 = new Task("t1", p1);
         Project p2 = new Project("p2", p1);
@@ -17,7 +23,9 @@ public class Main {
         p1.drawSons();
         p2.drawSons();
 
-        t3.printThree(t3);
+        t3.printTree(t3);
+
+
 
     }
 }

@@ -2,9 +2,9 @@ import java.time.LocalDateTime;
 
 abstract public class Activity {
     String name;
-    LocalDateTime initialHour;
-    LocalDateTime finalHour;
-    LocalDateTime duration; //Problem! what happens if as we do the iteration calculating durations we arrive to a Project leaf? Will the duration be 0?
+    LocalDateTime initialHour = null;
+    LocalDateTime finalHour = null;
+    LocalDateTime duration = null; //Problem! what happens if as we do the iteration calculating durations we arrive to a Project leaf? Will the duration be 0?
 
     Project projectFather;
 
@@ -24,11 +24,11 @@ abstract public class Activity {
         this.projectFather = father;
     }
     //abstract void addChild(Activity child);
-    public void printThree(Activity node)
+    public void printTree(Activity node)
     {
         if(node.projectFather != null)
         {
-            printThree(node.projectFather);
+            printTree(node.projectFather);
         }
         node.printName();
     }
