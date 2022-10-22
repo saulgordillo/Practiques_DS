@@ -3,10 +3,19 @@ import java.util.List;
 public class Task extends Activity {
   private List<Interval> intervals;
 
-  public Task() {
-    this.name = "";
-    this.projectFather = null;
-  }
+
+    public Task()
+    {
+        this.name="";
+        this.projectFather=null;
+    }
+    public Task(String name, Project father)
+    {
+        this.name = name;
+        this.projectFather = father;
+        father.addChild(this);
+
+    }
 
   public Task(String name, Project father) {
     this.name = name;
