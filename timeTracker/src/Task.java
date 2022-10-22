@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Task extends Activity {
@@ -8,19 +9,21 @@ public class Task extends Activity {
     {
         this.name="";
         this.projectFather=null;
+        this.intervals = new ArrayList<Interval>();
     }
     public Task(String name, Project father)
     {
         this.name = name;
         this.projectFather = father;
         father.addChild(this);
-
+        this.intervals = new ArrayList<Interval>();
     }
 
-  public Task(String name, Project father) {
-    this.name = name;
-    this.projectFather = father;
-  }
+    public void addInterval()
+    {
+      Interval interval = new Interval(this);
+      intervals.add(interval);
+    }
 
   public void duration() {
     for (int i = 0; i < intervals.size(); i++) {
@@ -39,8 +42,9 @@ public class Task extends Activity {
     System.out.print("I am a Task");
   }
 
+  //WARNING
   public void start() {
-    Interval newInterval = new Interval();
+    Interval newInterval = new Interval(this);
     intervals.add(newInterval);
     TimeController timeControllerInstance = TimeController.getInstance();
     timeControllerInstance.addObserver(newInterval);

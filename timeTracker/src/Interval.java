@@ -6,6 +6,12 @@ import java.util.Observer;
 public class Interval implements Observer {
   private LocalDateTime initialDate = null;
   private LocalDateTime finalDate = null;
+  private Task myTask;
+
+  public Interval(Task father)
+  {
+    this.myTask = father;
+  }
 
   public LocalDateTime getInitialDate() {
     return initialDate;
@@ -24,7 +30,9 @@ public class Interval implements Observer {
     if (initialDate == null) {
       initialDate = (LocalDateTime) object;
     }
-
     finalDate = (LocalDateTime) object;
+    Duration aux = this.calculateInterval();
+    myTask.addTime(aux);
+
   }
 }
