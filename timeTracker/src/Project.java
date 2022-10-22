@@ -18,8 +18,6 @@ public class Project extends Activity {
     if (father != null) {
       father.addChild(this);
     }
-
-
   }
 
   public void addChild(Activity child) {
@@ -33,7 +31,6 @@ public class Project extends Activity {
   public void duration() {
     //Can a project have a duration if there is no tasks in it?
     //Yes -Lucas-
-
   }
 
   //this methods test all the methods and abstract system.

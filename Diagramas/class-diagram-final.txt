@@ -1,0 +1,70 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+package java.util{
+    abstract Observable {
+    +addObserver(observer : Observer)
+    +deleteObserver(observer : Observer)
+    +setChanged()
+    +notifyObservers(observable : Observable, object : Object)
+  }
+
+  interface Observer {
+    +update(observable : Observable, object : Object)
+  }
+
+  Observable --> Observer : observers
+}
+
+class Clock {
+  -myTimer: Timer
+  +getInstance()
+  +tick()
+}
+
+class Interval {
+  -initialDate : LocalDateTime
+  -finalDate : LocalDateTime
+  -myTask : Task
+  calculateInterval()
+  update(observable : Observable, object : Object)
+}
+
+class Task {
+  -intervals : List<Interval>
+  +addInterval()
+  +duration()
+  +initHours()
+  +addInterval()
+  +start()
+  +stop()
+}
+
+class Project {
+  -projects : List<Activity>
+  -initialHour : string
+  -finalHour : string
+  +addChild(child : Activity)
+  +duration()
+  +drawSons()
+}
+
+abstract Activity {
+  #name : string
+  #initialHour : LocalDateTime
+  #finalHour : LocalDateTime
+  #duration : Duration
+  #project : Project
+  +printTree(node : Activity)
+  +addTime(duration : Duration)
+  +duration()
+}
+
+Clock --|> Observable
+Interval ..|> Observer
+Interval "n" --* "1" Task : intervals
+Task --|> Activity
+Project --|> Activity
+Project "n" --* "1" Activity : projects
+
+@enduml
