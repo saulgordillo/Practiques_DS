@@ -1,14 +1,34 @@
+import java.time.LocalDateTime;
+import java.util.Observable;
 
-import java.util.Timer;
-import java.util.TimerTask;
+public class TimeController extends Observable {
+  public LocalDateTime dateTimeNow;
 
-public class TimeController {
-    public TimerTask dateTime;
-    public Timer timer;
+  private TimeController() {
+    dateTimeNow = LocalDateTime.now();
+  }
 
+  // Singleton pattern
+  private static TimeController uniqueInstanceTimeController = null;
 
-    private void tick()
-    {
-
+  public static TimeController getInstance() {
+    if (uniqueInstanceTimeController == null) {
+      uniqueInstanceTimeController = new TimeController();
     }
+
+    return uniqueInstanceTimeController;
+  }
+
+  private void tick() {
+    dateTimeNow = LocalDateTime.now();
+    setChanged();
+    notifyObservers(dateTimeNow);
+  }
+
+  public void updateTime() throws InterruptedException {
+    while (true) {
+      tick();
+      Thread.sleep(2000);
+    }
+  }
 }

@@ -1,6 +1,8 @@
+import java.time.Duration;
 import java.time.LocalDateTime;
 
 abstract public class Activity {
+
     String name;
     LocalDateTime initialHour = null;
     LocalDateTime finalHour = null;
