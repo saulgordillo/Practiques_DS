@@ -1,30 +1,27 @@
 public class Main {
   public static void main(String[] args) {
+    // top level
+    Project softwareDesign = new Project("software design", null);
+    Project softwareTesting = new Project("software testing", null);
+    Project databases = new Project("database", null);
+    Project taskTransportation = new Project("task transportation", null);
 
-    //Project softeare_desgin = new Project("software desgin", null);
-    //Project software_testing = new Project("software testing", null);
-    //Project database = new Project("database", null);
-    //Project transportation = new Project("software_desgin", null);
+    // under software design
+    Project problems = new Project("problems", softwareDesign);
+    Project projectTimeTracker = new Project("project time tracker", softwareDesign);
 
+    // under problems
+    Task firstList = new Task("first list", problems);
+    Task secondList = new Task("second list", problems);
 
-    Project p1 = new Project("p1", null);
-    Task t1 = new Task("t1", p1);
-    Project p2 = new Project("p2", p1);
-    Task t2 = new Task("t2", p2);
-    Task t3 = new Task("t3", p2);
+    // under project time tracker
+    Task readHandout = new Task("read handout", projectTimeTracker);
+    Task firstMilestone = new Task("first milestone", projectTimeTracker);
 
-    //Let's look if all the connexions are ok
-    //p1.addChild(t1);
-    //p1.addChild(p2);
+    firstList.start();
 
-    //p2.addChild(t2);
-    //p2.addChild(t3);
+    softwareDesign.printTree(softwareDesign);
 
-    p1.drawSons();
-    p2.drawSons();
-
-    t3.printTree(t3);
-
-
+    firstList.stop();
   }
 }

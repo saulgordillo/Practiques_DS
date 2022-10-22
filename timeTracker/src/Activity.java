@@ -33,8 +33,8 @@ public abstract class Activity {
   }
 
   public void addTime(Duration duration) {
-    if (getProjectFather() != null) {
-      getProjectFather().addTime(duration);
+    if (this.projectFather != null) {
+      this.projectFather.addTime(duration);
     }
 
     if (this.duration == null) {
@@ -49,13 +49,5 @@ public abstract class Activity {
 
   public abstract void duration();
 
-  public Project getProjectFather() {
-    return this.projectFather;
-  }
-
-  public void printName() {
-    System.out.print(this.name);
-    System.out.print("\n");
-  }
-
+  public abstract void printName();
 }

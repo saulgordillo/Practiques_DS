@@ -4,7 +4,6 @@ import java.util.List;
 public class Task extends Activity {
   private List<Interval> intervals;
 
-
   public Task() {
     this.name = "";
     this.projectFather = null;
@@ -51,5 +50,19 @@ public class Task extends Activity {
   public void stop() {
     Clock clockInstance = Clock.getInstance();
     clockInstance.deleteObserver(intervals.get(intervals.size() - 1));
+  }
+
+  @Override
+  public void printName() {
+    System.out.print("Task name: ");
+    System.out.print(this.name);
+    System.out.print("\tChild of ");
+    System.out.print(this.projectFather);
+    System.out.print("\tInitial time: ");
+    System.out.print(this.initialHour);
+    System.out.print("\tFinal time: ");
+    System.out.print(this.finalHour);
+    System.out.print("\tDuration: ");
+    System.out.print(this.duration);
   }
 }
