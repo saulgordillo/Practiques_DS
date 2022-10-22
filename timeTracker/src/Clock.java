@@ -1,11 +1,13 @@
 import java.time.LocalDateTime;
 import java.util.Observable;
+import java.util.Timer;
 
 public class Clock extends Observable {
-  private LocalDateTime dateTimeNow;
+  private Timer myTimer;
 
   private Clock() {
-
+    myTimer = new Timer();
+    myTimer.scheduleAtFixedRate(new ClockTask(), 0, 2000);
   }
 
   // Singleton pattern
@@ -19,16 +21,8 @@ public class Clock extends Observable {
     return uniqueInstanceClock;
   }
 
-  private void tick() {
-    dateTimeNow = LocalDateTime.now();
+  public void tick() {
     setChanged();
-    notifyObservers(dateTimeNow);
-  }
-
-  public void updateTime() throws InterruptedException {
-    while (true) {
-      tick();
-      Thread.sleep(2000);
-    }
+    notifyObservers(LocalDateTime.now());
   }
 }
