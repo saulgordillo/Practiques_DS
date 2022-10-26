@@ -49,5 +49,9 @@ public abstract class Activity {
 
   public abstract void duration();
 
+  public Duration getDuration() {
+    return duration;
+  }
+
   public abstract void printName();
 }

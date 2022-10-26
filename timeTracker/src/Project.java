@@ -29,8 +29,10 @@ public class Project extends Activity {
   }
 
   public void duration() {
-    //Can a project have a duration if there is no tasks in it?
-    //Yes -Lucas-
+    for (int i = 0; i < projects.size(); i++) {
+      //We are iterating through projects to sum every interval to get the duration of this task
+      this.duration.plus(projects.get(i).getDuration());
+    }
   }
 
   //this methods test all the methods and abstract system.

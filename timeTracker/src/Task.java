@@ -24,7 +24,7 @@ public class Task extends Activity {
 
   public void duration() {
     for (int i = 0; i < intervals.size(); i++) {
-      //We are iterating through intervals to sum every interval  to get the duration of this task
+      //We are iterating through intervals to sum every interval to get the duration of this task
       this.duration.plus(intervals.get(i).calculateInterval());
     }
   }
