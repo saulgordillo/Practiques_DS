@@ -25,4 +25,8 @@ public class Clock extends Observable {
     setChanged();
     notifyObservers(LocalDateTime.now());
   }
+
+  public void deleteTimer() {
+    myTimer.cancel();
+  }
 }

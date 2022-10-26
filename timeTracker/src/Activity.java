@@ -53,5 +53,22 @@ public abstract class Activity {
     return duration;
   }
 
-  public abstract void printName();
+  public void printName() {
+    System.out.print("Activity name: ");
+    System.out.print(this.name);
+    System.out.print("\tChild of ");
+    if (this.projectFather != null) {
+      System.out.print(this.projectFather.getName());
+    } else {
+      System.out.print("null");
+    }
+    System.out.print("\tInitial time: ");
+    System.out.print(this.initialHour);
+    System.out.print("\tFinal time: ");
+    System.out.print(this.finalHour);
+    System.out.print("\tDuration: ");
+    System.out.print(this.duration.toString());
+    //String d = this.duration.format(ISO_LOCAL_TIME);
+    System.out.print("\n");
+  }
 }

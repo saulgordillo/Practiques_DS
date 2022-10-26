@@ -47,18 +47,4 @@ public class Project extends Activity {
       i = i + 1;
     }
   }
-
-  @Override
-  public void printName() {
-    System.out.print("Project name: ");
-    System.out.print(this.name);
-    System.out.print("\tChild of ");
-    System.out.print(this.projectFather);
-    System.out.print("\tInitial time: ");
-    System.out.print(this.initialHour);
-    System.out.print("\tFinal time: ");
-    System.out.print(this.finalHour);
-    System.out.print("\tDuration: ");
-    System.out.print(this.duration);
-  }
 }
