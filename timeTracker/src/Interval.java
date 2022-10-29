@@ -22,8 +22,7 @@ public class Interval implements Observer {
   }
 
   public Duration calculateInterval() {
-    Duration interval = Duration.between(initialDate, finalDate);
-    return interval;
+    return Duration.between(initialDate, finalDate);
   }
 
   public void update(Observable observable, Object object) {
@@ -31,8 +30,7 @@ public class Interval implements Observer {
       initialDate = (LocalDateTime) object;
     }
     finalDate = (LocalDateTime) object;
-    Duration intervalActual = this.calculateInterval();
-    myTask.addTime(intervalActual);
-
+    myTask.updateDates(initialDate, finalDate, calculateInterval());
+    myTask.printTree(myTask);
   }
 }

@@ -11,10 +11,16 @@ public class Task extends Activity {
   }
 
   public Task(String name, Project father) {
-    this.name = name;
-    this.projectFather = father;
-    father.addChild(this);
-    this.intervals = new ArrayList<Interval>();
+    if (!father.isRoot) {
+      this.name = name;
+      this.projectFather = father;
+      father.addChild(this);
+      this.intervals = new ArrayList<Interval>();
+    } else {
+      System.out.print("Could not create task ");
+      System.out.print(name);
+      System.out.print(": Father is null\n");
+    }
   }
 
   public void addInterval() {
@@ -22,16 +28,16 @@ public class Task extends Activity {
     intervals.add(interval);
   }
 
-  public void duration() {
+  public void calculateDuration() {
     for (int i = 0; i < intervals.size(); i++) {
       //We are iterating through intervals to sum every interval to get the duration of this task
       this.duration.plus(intervals.get(i).calculateInterval());
     }
   }
 
-  public void initHours() {
-    this.initialHour = intervals.get(0).getInitialDate();
-    this.finalHour = intervals.get(intervals.size() - 1).getFinalDate();
+  public void setDates() {
+    this.initialDate = intervals.get(0).getInitialDate();
+    this.finalDate = intervals.get(intervals.size() - 1).getFinalDate();
   }
 
   //methods serves to test the abstract system
@@ -49,6 +55,6 @@ public class Task extends Activity {
   public void stop() {
     Clock clockInstance = Clock.getInstance();
     clockInstance.deleteObserver(intervals.get(intervals.size() - 1));
-    clockInstance.deleteTimer();
+    //clockInstance.deleteTimer();
   }
 }

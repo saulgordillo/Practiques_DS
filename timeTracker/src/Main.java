@@ -1,10 +1,11 @@
 public class Main {
   public static void main(String[] args) throws InterruptedException {
+    Project projectRoot = new Project(true);
     // top level
-    Project softwareDesign = new Project("software design", null);
-    Project softwareTesting = new Project("software testing", null);
-    Project databases = new Project("database", null);
-    Task transportation = new Task("transportation", null);
+    Project softwareDesign = new Project("software design", projectRoot);
+    Project softwareTesting = new Project("software testing", projectRoot);
+    Project databases = new Project("database", projectRoot);
+    Task transportation = new Task("transportation", projectRoot);
 
     // under software design
     Project problems = new Project("problems", softwareDesign);
@@ -20,12 +21,14 @@ public class Main {
 
     firstList.start();
 
-    //softwareDesign.printTree(firstList);
-
-    Thread.sleep(2000);
-
-    softwareDesign.printTree(firstList);
+    Thread.sleep(6000);
 
     firstList.stop();
+
+    readHandout.start();
+
+    Thread.sleep(4000);
+
+    readHandout.stop();
   }
 }

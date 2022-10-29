@@ -2,13 +2,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Project extends Activity {
-
-  public List<Activity> projects;
+  protected List<Activity> projects;
 
   public Project() {
     this.name = "";
     this.projectFather = null;
     this.projects = new ArrayList<Activity>();
+  }
+
+  public Project(boolean isRoot) {
+    this.name = "root";
+    this.projectFather = null;
+    this.projects = new ArrayList<Activity>();
+    this.isRoot = true;
   }
 
   public Project(String name, Project father) {
@@ -28,7 +34,9 @@ public class Project extends Activity {
     return this.name;
   }
 
-  public void duration() {
+  public boolean getIsRoot() { return this.isRoot; }
+
+  public void calculateDuration() {
     for (int i = 0; i < projects.size(); i++) {
       //We are iterating through projects to sum every interval to get the duration of this task
       this.duration.plus(projects.get(i).getDuration());

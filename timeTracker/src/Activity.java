@@ -4,24 +4,29 @@ import java.time.LocalDateTime;
 public abstract class Activity {
 
   protected String name;
-  protected LocalDateTime initialHour = null;
-  protected LocalDateTime finalHour = null;
+  protected LocalDateTime initialDate = null;
+  protected LocalDateTime finalDate = null;
   protected Duration duration = null; //Problem! what happens if as we do the iteration calculating durations we arrive to a Project leaf? Will the duration be 0?
   protected Project projectFather;
+  protected boolean isRoot = false;
+
 
   public Activity() {
     this.name = "";
     this.projectFather = null;
+    this.duration = duration.ofSeconds(0);
   }
 
   public Activity(Activity aux) {
     this.name = aux.name;
     this.projectFather = aux.projectFather;
+    this.duration = duration.ofSeconds(0);
   }
 
   public Activity(String name, Project father) {
     this.name = name;
     this.projectFather = father;
+    this.duration = duration.ofSeconds(0);
   }
 
   //abstract void addChild(Activity child);
@@ -40,14 +45,26 @@ public abstract class Activity {
     if (this.duration == null) {
       this.duration = duration;
     } else {
-      this.duration.plus(duration);
+      this.duration = this.duration.plus(duration);
     }
+  }
+
+  public void updateDates(LocalDateTime initialDate, LocalDateTime finalDate, Duration duration) {
+    if (!this.isRoot) {
+      this.projectFather.updateDates(initialDate, finalDate, duration);
+    }
+
+    if (this.initialDate == null) {
+      this.initialDate = initialDate;
+    }
+    this.finalDate = finalDate;
+    this.duration = this.duration.plus(duration.minus(this.duration));
   }
 
   //Methods unneeded
   public abstract void whoAmI();
 
-  public abstract void duration();
+  public abstract void calculateDuration();
 
   public Duration getDuration() {
     return duration;
@@ -62,12 +79,20 @@ public abstract class Activity {
     } else {
       System.out.print("null");
     }
-    System.out.print("\tInitial time: ");
-    System.out.print(this.initialHour);
-    System.out.print("\tFinal time: ");
-    System.out.print(this.finalHour);
+    System.out.print("\tInitial date: ");
+    if (this.initialDate != null) {
+      System.out.print(this.initialDate);
+    } else {
+      System.out.print("null");
+    }
+    System.out.print("\tFinal date: ");
+    System.out.print(this.finalDate);
     System.out.print("\tDuration: ");
-    System.out.print(this.duration.toString());
+    if (this.duration != null) {
+      System.out.print(Math.round(this.duration.getSeconds() + ((double)this.duration.getNano()/1000000000)));
+    } else {
+      System.out.print("null");
+    }
     //String d = this.duration.format(ISO_LOCAL_TIME);
     System.out.print("\n");
   }
