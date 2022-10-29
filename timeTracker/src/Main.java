@@ -49,5 +49,17 @@ public class Main {
 
     Clock myClock = Clock.getInstance();
     myClock.deleteTimer();
+	
+	//Save data in JSONObject
+	JSONObject dataFiles = new JSONObject();
+        dataFiles = projectRoot.project();
+
+		//Create json file and add data 
+       try (FileWriter file = new FileWriter("MyJSON.json")){
+            file.write(dateFiles.toString());
+            file.flush();
+       }catch (IOException e) {
+           e.printStackTrace();
+       }
   }
 }

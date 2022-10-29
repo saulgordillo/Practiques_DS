@@ -38,4 +38,21 @@ public class Project extends Activity {
       this.duration.plus(activities.get(i).getDuration());
     }
   }
+  
+  //Generate JSONObject for Task and Project
+  public JSONObject project() {
+        JSONArray list = new JSONArray();
+        JSONObject task = new JSONObject();
+
+        for(int i=0; i < projects.size(); i++) {
+            if (projects.get(i) instanceof Project) {
+                list.put(((Project) projects.get(i)).project());
+            } else if(projects.get(i) instanceof Task) {
+                list.put(((Task) projects.get(i)).taskToJson());
+            }
+        }
+        task.put("Projects", list);
+        super.activity(task);
+        return task;
+    }
 }

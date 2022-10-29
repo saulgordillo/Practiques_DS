@@ -33,4 +33,13 @@ public class Interval implements Observer {
     myTask.updateDates(initialDate, finalDate, calculateInterval());
     myTask.printTree(myTask);
   }
+  
+  //Create JSONObject
+  public JSONObject interval() {
+        JSONObject interval = new JSONObject();
+        interval.put("initialDate", initialDate);
+        interval.put("finalDate", finalDate);
+        interval.put("task", myTask);
+        return interval;
+    }
 }
