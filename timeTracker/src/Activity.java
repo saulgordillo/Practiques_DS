@@ -58,16 +58,16 @@ public abstract class Activity {
   public Duration getDuration() {
     return duration;
   }
-  
-  //Create JSONObject
-    public JSONObject activity(JSONObject act) {
-        act.put("duartion", duration);
-        act.put("initialDate", initialDate);
-        act.put("finalDate", finalDate);
-        act.put("name", name);
 
-        return act;
-    }
+  //Create JSONObject
+  public JSONObject activity(JSONObject act) {
+    act.put("duration", duration);
+    act.put("initialDate", initialDate);
+    act.put("finalDate", finalDate);
+    act.put("name", name);
+
+    return act;
+  }
 
   public void printName() {
     System.out.print("Activity: \t");

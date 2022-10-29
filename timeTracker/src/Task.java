@@ -53,17 +53,17 @@ public class Task extends Activity {
     clockInstance.deleteObserver(intervals.get(intervals.size() - 1));
     //clockInstance.deleteTimer();
   }
-  
+
   //Generate JSONObject for Intervals
   public JSONObject taskToJson() {
-        JSONArray list = new JSONArray();
-        JSONObject task = new JSONObject();
+    JSONArray list = new JSONArray();
+    JSONObject task = new JSONObject();
 
 
-        for(int i=0; i < intervals.size(); i++) {
-            list.put(intervals.get(i).interval()) ;
-        }
-        task.put("IntervalTask", list);
-        return task;
+    for (int i = 0; i < intervals.size(); i++) {
+      list.put(intervals.get(i).interval());
     }
+    task.put("IntervalTask", list);
+    return task;
+  }
 }
