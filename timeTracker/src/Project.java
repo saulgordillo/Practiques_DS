@@ -33,9 +33,10 @@ public class Project extends Activity {
   }
 
   public void calculateDuration() {
+    this.duration = duration.ofSeconds(0);
     for (int i = 0; i < activities.size(); i++) {
       //We are iterating through projects to sum every interval to get the duration of this task
-      this.duration.plus(activities.get(i).getDuration());
+      this.duration = this.duration.plus(activities.get(i).getDuration());
     }
   }
 }

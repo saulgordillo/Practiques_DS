@@ -38,16 +38,18 @@ public abstract class Activity {
     node.printName();
   }
 
-  public void updateDates(LocalDateTime initialDate, LocalDateTime finalDate, Duration duration) {
+  public void updateDatesAndDuration(LocalDateTime initialDate, LocalDateTime finalDate) {
     if (!this.isRoot) {
-      this.projectFather.updateDates(initialDate, finalDate, duration);
+      this.calculateDuration();
+      this.projectFather.updateDatesAndDuration(initialDate, finalDate);
+    } else if (this.isRoot) {
+      this.calculateDuration();
     }
 
     if (this.initialDate == null) {
       this.initialDate = initialDate;
     }
     this.finalDate = finalDate;
-    this.duration = this.duration.plus(duration.minus(this.duration));
   }
 
   //Methods unneeded
@@ -58,7 +60,7 @@ public abstract class Activity {
   }
 
   public void printName() {
-    System.out.print("Activity name: ");
+    System.out.print("Activity: \t");
     System.out.print(this.name);
     //System.out.print("\tChild of ");
     //if (this.projectFather != null) {
@@ -66,11 +68,11 @@ public abstract class Activity {
     //} else {
     //System.out.print("null");
     //}
-    System.out.print("\tInitial date: ");
+    System.out.print("\tInitial date: \t");
     System.out.print(this.initialDate);
-    System.out.print("\tFinal date: ");
+    System.out.print("\tFinal date: \t");
     System.out.print(this.finalDate);
-    System.out.print("\tDuration: ");
+    System.out.print("\tDuration: \t");
     System.out.print(Math.round(this.duration.getSeconds() + ((double) this.duration.getNano() / 1000000000)));
     //String d = this.duration.format(ISO_LOCAL_TIME);
     System.out.print("\n");

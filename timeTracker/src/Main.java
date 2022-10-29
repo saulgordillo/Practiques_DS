@@ -40,10 +40,6 @@ public class Main {
     readHandout.stop();
   }
 
-  private static void testTasksDuration() {
-
-  }
-
   public static void main(String[] args) throws InterruptedException {
     testCountingTime();
 

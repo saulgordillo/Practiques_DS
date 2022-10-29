@@ -6,11 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="6105a771-9803-485b-8f86-0931cca5005a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/timeTracker/Activity.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/timeTracker/Activity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/timeTracker/Interval.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/timeTracker/Interval.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/timeTracker/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/timeTracker/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/timeTracker/Project.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/timeTracker/Project.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/timeTracker/Task.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/timeTracker/Task.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Clock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Clock.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Interval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interval.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Task.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +98,7 @@
       <workItem from="1666476028740" duration="474000" />
       <workItem from="1666789353307" duration="3487000" />
       <workItem from="1667033170569" duration="9476000" />
-      <workItem from="1667068156812" duration="1335000" />
+      <workItem from="1667068156812" duration="4235000" />
     </task>
     <servers />
   </component>

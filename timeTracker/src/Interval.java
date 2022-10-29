@@ -6,22 +6,20 @@ import java.util.Observer;
 public class Interval implements Observer {
   private LocalDateTime initialDate = null;
   private LocalDateTime finalDate = null;
+  private Duration duration = null;
   private Task myTask;
 
   public Interval(Task father) {
     this.myTask = father;
+    this.duration = duration.ofSeconds(0);
   }
 
-  public LocalDateTime getInitialDate() {
-    return initialDate;
+  public Duration getDuration() {
+    return duration;
   }
 
   public LocalDateTime getFinalDate() {
     return finalDate;
-  }
-
-  public Duration calculateInterval() {
-    return Duration.between(initialDate, finalDate);
   }
 
   // Update dates when the Observable has changed, in this case when the Clock changes
@@ -30,7 +28,8 @@ public class Interval implements Observer {
       initialDate = (LocalDateTime) object;
     }
     finalDate = (LocalDateTime) object;
-    myTask.updateDates(initialDate, finalDate, calculateInterval());
+    duration = Duration.between(initialDate, finalDate);
+    myTask.updateDatesAndDuration(initialDate, finalDate);
     myTask.printTree(myTask);
   }
 }

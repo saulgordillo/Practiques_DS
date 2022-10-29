@@ -29,15 +29,11 @@ public class Task extends Activity {
   }
 
   public void calculateDuration() {
+    this.duration = duration.ofSeconds(0);
     for (int i = 0; i < intervals.size(); i++) {
       //We are iterating through intervals to sum every interval to get the duration of this task
-      this.duration.plus(intervals.get(i).calculateInterval());
+      this.duration = this.duration.plus(intervals.get(i).getDuration());
     }
-  }
-
-  public void setDates() {
-    this.initialDate = intervals.get(0).getInitialDate();
-    this.finalDate = intervals.get(intervals.size() - 1).getFinalDate();
   }
 
   //methods serves to test the abstract system
