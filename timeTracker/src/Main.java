@@ -1,5 +1,5 @@
 public class Main {
-  public static void main(String[] args) throws InterruptedException {
+  private static void testCountingTime() throws InterruptedException {
     Project projectRoot = new Project(true);
     // top level
     Project softwareDesign = new Project("software design", projectRoot);
@@ -21,14 +21,33 @@ public class Main {
 
     firstList.start();
 
-    Thread.sleep(6000);
+    try {
+      Thread.sleep(6000);
+    } catch (Exception e) {
+      System.out.print("Thread.sleep()");
+    }
 
     firstList.stop();
 
     readHandout.start();
 
-    Thread.sleep(4000);
+    try {
+      Thread.sleep(4000);
+    } catch (Exception e) {
+      System.out.print("Thread.sleep()");
+    }
 
     readHandout.stop();
+  }
+
+  private static void testTasksDuration() {
+
+  }
+
+  public static void main(String[] args) throws InterruptedException {
+    testCountingTime();
+
+    Clock myClock = Clock.getInstance();
+    myClock.deleteTimer();
   }
 }

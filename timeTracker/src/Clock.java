@@ -5,6 +5,7 @@ import java.util.Timer;
 public class Clock extends Observable {
   private Timer myTimer;
 
+  // Set a timer to execute the run() method in ClockTimer class every 2 seconds (2000 milliseconds)
   private Clock() {
     myTimer = new Timer();
     myTimer.scheduleAtFixedRate(new ClockTask(), 0, 2000);
@@ -21,6 +22,7 @@ public class Clock extends Observable {
     return uniqueInstanceClock;
   }
 
+  // Notify all observers to update with the actual date
   public void tick() {
     setChanged();
     notifyObservers(LocalDateTime.now());

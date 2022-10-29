@@ -8,8 +8,7 @@ public class Interval implements Observer {
   private LocalDateTime finalDate = null;
   private Task myTask;
 
-  public Interval(Task father)
-  {
+  public Interval(Task father) {
     this.myTask = father;
   }
 
@@ -25,6 +24,7 @@ public class Interval implements Observer {
     return Duration.between(initialDate, finalDate);
   }
 
+  // Update dates when the Observable has changed, in this case when the Clock changes
   public void update(Observable observable, Object object) {
     if (initialDate == null) {
       initialDate = (LocalDateTime) object;
