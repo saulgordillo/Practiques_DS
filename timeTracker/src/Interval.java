@@ -9,6 +9,7 @@ public class Interval implements Observer {
   private LocalDateTime finalDate = null;
   private Duration duration = null;
   private Task myTask;
+  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
   public Interval(Task father) {
     this.myTask = father;
@@ -22,6 +23,13 @@ public class Interval implements Observer {
   public LocalDateTime getFinalDate() {
     return finalDate;
   }
+  
+  public void printInterval () {
+        System.out.println("Interval: " +    "                  "   +  this.initialDate.format(formatter) + "   "+  this.finalDate.format(formatter) + "            "     +    Math.round(this.duration.getSeconds() + ((double) this.duration.getNano() / 1000000000)));
+
+        myTask.printActivity();
+
+  }
 
   // Update dates when the Observable has changed, in this case when the Clock changes
   public void update(Observable observable, Object object) {
@@ -31,7 +39,8 @@ public class Interval implements Observer {
     finalDate = (LocalDateTime) object;
     duration = Duration.between(initialDate, finalDate);
     myTask.updateDatesAndDuration(initialDate, finalDate);
-    myTask.printTree(myTask);
+	this.printInterval();
+    //myTask.printTree(myTask);
   }
 
   //Create JSONObject

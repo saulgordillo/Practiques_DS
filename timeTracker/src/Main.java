@@ -24,25 +24,66 @@ public class Main {
     Task readHandout = new Task("read handout", projectTimeTracker);
     Task firstMilestone = new Task("first milestone", projectTimeTracker);
 
-    firstList.start();
-
     try {
-      Thread.sleep(6000);
-    } catch (Exception e) {
-      System.out.print("Thread.sleep()");
-    }
+            Thread.sleep(6000);
+        } catch (Exception e) {
+            System.out.print("Thread.sleep()");
+        }
 
-    firstList.stop();
+        transportation.stop();
+        System.out.println("transportation stops");
+        try {
+            Thread.sleep(2000);
+        } catch (Exception e) {
+            System.out.print("Thread.sleep()");
+        }
 
-    readHandout.start();
+        System.out.println("firstList starts");
+        firstList.start();
 
-    try {
-      Thread.sleep(4000);
-    } catch (Exception e) {
-      System.out.print("Thread.sleep()");
-    }
+        try {
+            Thread.sleep(6000);
+        } catch (Exception e) {
+            System.out.print("Thread.sleep()");
+        }
 
-    readHandout.stop();
+        System.out.println("secondList starts");
+        secondList.start();
+
+        try {
+            Thread.sleep(4000);
+        } catch (Exception e) {
+            System.out.print("Thread.sleep()");
+        }
+
+        firstList.stop();
+        System.out.println("firstList stop");
+
+        try {
+            Thread.sleep(2000);
+        } catch (Exception e) {
+            System.out.print("Thread.sleep()");
+        }
+
+        secondList.stop();
+        System.out.println("secondList stop");
+
+
+        try {
+            Thread.sleep(2000);
+        } catch (Exception e) {
+            System.out.print("Thread.sleep()");
+        }
+
+        System.out.println("transportation starts");
+        transportation.start();
+        try {
+            Thread.sleep(4000);
+        } catch (Exception e) {
+            System.out.print("Thread.sleep()");
+        }
+        transportation.stop();
+        System.out.println("transportation stop");
 
     return projectRoot;
   }
