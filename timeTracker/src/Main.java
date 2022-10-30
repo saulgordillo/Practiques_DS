@@ -1,9 +1,10 @@
 import org.json.JSONObject;
+
 import java.io.FileWriter;
 import java.io.IOException;
 
 public class Main {
-  private static void testCountingTime() throws InterruptedException {
+  private static Project testCountingTime() throws InterruptedException {
     Project projectRoot = new Project(true);
     // top level
     Project softwareDesign = new Project("software design", projectRoot);
@@ -42,21 +43,22 @@ public class Main {
     }
 
     readHandout.stop();
+
+    return projectRoot;
   }
 
   public static void main(String[] args) throws InterruptedException {
-    testCountingTime();
+    Project projectRoot = testCountingTime();
 
     Clock myClock = Clock.getInstance();
     myClock.deleteTimer();
 
     //Save data in JSONObject
-    JSONObject dataFiles = new JSONObject();
-    dataFiles = projectRoot.project();
+    JSONObject dataFiles = projectRoot.project();
 
     //Create json file and add data
-    try (FileWriter file = new FileWriter("MyJSON.json")) {
-      file.write(dateFiles.toString());
+    try (FileWriter file = new FileWriter("test.json")) {
+      file.write(dataFiles.toString());
       file.flush();
     } catch (IOException e) {
       e.printStackTrace();
