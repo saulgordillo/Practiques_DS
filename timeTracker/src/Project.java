@@ -47,11 +47,11 @@ public class Project extends Activity {
     JSONArray list = new JSONArray();
     JSONObject task = new JSONObject();
 
-    for (int i = 0; i < projects.size(); i++) {
-      if (projects.get(i) instanceof Project) {
-        list.put(((Project) projects.get(i)).project());
-      } else if (projects.get(i) instanceof Task) {
-        list.put(((Task) projects.get(i)).taskToJson());
+    for (int i = 0; i < activities.size(); i++) {
+      if (activities.get(i) instanceof Project) {
+        list.put(((Project) activities.get(i)).project());
+      } else if (activities.get(i) instanceof Task) {
+        list.put(((Task) activities.get(i)).taskToJson());
       }
     }
     task.put("Projects", list);
