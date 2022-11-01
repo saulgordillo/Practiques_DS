@@ -1,27 +1,27 @@
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Project extends Activity {
 
   public Project() {
     this.name = "";
     this.projectFather = null;
-    this.activities = new ArrayList<Activity>();
+    this.activities = new LinkedList<Activity>();
   }
 
   public Project(boolean isRoot) {
     this.name = "root";
     this.projectFather = null;
-    this.activities = new ArrayList<Activity>();
+    this.activities = new LinkedList<Activity>();
     this.isRoot = true;
   }
 
   public Project(String name, Project father) {
     this.name = name;
     this.projectFather = father;
-    this.activities = new ArrayList<Activity>();
+    this.activities = new LinkedList<Activity>();
     if (father != null) {
       father.addChild(this);
     }

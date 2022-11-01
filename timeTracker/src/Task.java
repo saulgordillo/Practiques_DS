@@ -1,7 +1,7 @@
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Task extends Activity {
@@ -10,14 +10,14 @@ public class Task extends Activity {
   public Task() {
     this.name = "";
     this.projectFather = null;
-    this.intervals = new ArrayList<Interval>();
+    this.intervals = new LinkedList<Interval>();
   }
 
   public Task(String name, Project father) {
     this.name = name;
     this.projectFather = father;
     father.addChild(this);
-    this.intervals = new ArrayList<Interval>();
+    this.intervals = new LinkedList<Interval>();
   }
 
   public void calculateDuration() {
