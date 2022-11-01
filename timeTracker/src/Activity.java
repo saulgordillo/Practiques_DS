@@ -1,7 +1,9 @@
+import org.json.JSONObject;
+
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
-import org.json.JSONObject;
 
 public abstract class Activity {
   protected List<Activity> activities;
@@ -11,9 +13,9 @@ public abstract class Activity {
   protected Duration duration = null; //Problem! what happens if as we do the iteration calculating durations we arrive to a Project leaf? Will the duration be 0?
   protected Project projectFather;
   protected boolean isRoot = false;
-  
+
   //Change DateTimeFormatter
-  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
 
   public Activity() {
@@ -41,11 +43,11 @@ public abstract class Activity {
     }
     node.printName();
   }
-  
-   public String getName() {
-        return this.name;
 
-   }
+  public String getName() {
+    return this.name;
+
+  }
 
   public void updateDatesAndDuration(LocalDateTime initialDate, LocalDateTime finalDate) {
     if (!this.isRoot) {
@@ -77,12 +79,12 @@ public abstract class Activity {
 
     return act;
   }
-  
-  public void printActivity () {
-        System.out.println("Activity: " + this.name   +  "      " +   this.initialDate.format(formatter)  + "       " +  this.finalDate.format(formatter)   + "     " +    Math.round(this.duration.getSeconds() +  ((double) this.duration.getNano() / 1000000000)));
-        if (this.projectFather != null ) {
-            this.projectFather.printActivity();
-        }
+
+  public void printActivity() {
+    System.out.println("Activity: " + this.name + "      " + this.initialDate.format(formatter) + "       " + this.finalDate.format(formatter) + "     " + Math.round(this.duration.getSeconds() + ((double) this.duration.getNano() / 1000000000)));
+    if (this.projectFather != null) {
+      this.projectFather.printActivity();
+    }
 
   }
 

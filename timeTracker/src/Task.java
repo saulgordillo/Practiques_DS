@@ -1,7 +1,8 @@
-import java.util.ArrayList;
-import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Task extends Activity {
   private List<Interval> intervals;
@@ -13,21 +14,10 @@ public class Task extends Activity {
   }
 
   public Task(String name, Project father) {
-    if (!father.isRoot) {
-      this.name = name;
-      this.projectFather = father;
-      father.addChild(this);
-      this.intervals = new ArrayList<Interval>();
-    } else {
-      System.out.print("Could not create task ");
-      System.out.print(name);
-      System.out.print(": Father is null\n");
-    }
-  }
-
-  public void addInterval() {
-    Interval interval = new Interval(this);
-    intervals.add(interval);
+    this.name = name;
+    this.projectFather = father;
+    father.addChild(this);
+    this.intervals = new ArrayList<Interval>();
   }
 
   public void calculateDuration() {
@@ -45,7 +35,7 @@ public class Task extends Activity {
 
   public void start() {
     Interval newInterval = new Interval(this);
-    intervals.add(newInterval);
+    this.intervals.add(newInterval);
     Clock clockInstance = Clock.getInstance();
     clockInstance.addObserver(newInterval);
   }
@@ -53,7 +43,6 @@ public class Task extends Activity {
   public void stop() {
     Clock clockInstance = Clock.getInstance();
     clockInstance.deleteObserver(intervals.get(intervals.size() - 1));
-    //clockInstance.deleteTimer();
   }
 
   //Generate JSONObject for Intervals

@@ -1,15 +1,17 @@
+import org.json.JSONObject;
+
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Observable;
 import java.util.Observer;
-import org.json.JSONObject;
 
 public class Interval implements Observer {
   private LocalDateTime initialDate = null;
   private LocalDateTime finalDate = null;
   private Duration duration = null;
   private Task myTask;
-  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
   public Interval(Task father) {
     this.myTask = father;
@@ -23,11 +25,11 @@ public class Interval implements Observer {
   public LocalDateTime getFinalDate() {
     return finalDate;
   }
-  
-  public void printInterval () {
-        System.out.println("Interval: " +    "                  "   +  this.initialDate.format(formatter) + "   "+  this.finalDate.format(formatter) + "            "     +    Math.round(this.duration.getSeconds() + ((double) this.duration.getNano() / 1000000000)));
 
-        myTask.printActivity();
+  public void printInterval() {
+    System.out.println("Interval: " + "                  " + this.initialDate.format(formatter) + "   " + this.finalDate.format(formatter) + "            " + Math.round(this.duration.getSeconds() + ((double) this.duration.getNano() / 1000000000)));
+
+    myTask.printActivity();
 
   }
 
@@ -39,7 +41,7 @@ public class Interval implements Observer {
     finalDate = (LocalDateTime) object;
     duration = Duration.between(initialDate, finalDate);
     myTask.updateDatesAndDuration(initialDate, finalDate);
-	this.printInterval();
+    this.printInterval();
     //myTask.printTree(myTask);
   }
 
