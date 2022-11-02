@@ -18,35 +18,42 @@ package java.util{
 
 class Clock {
   -myTimer: Timer
+  -Clock()
   +getInstance()
   +tick()
+  +deleteTimer()
 }
 
 class Interval {
   -initialDate : LocalDateTime
   -finalDate : LocalDateTime
+  -duration : Duration
   -myTask : Task
-  calculateInterval()
-  update(observable : Observable, object : Object)
+  +Interval(task : Task) : Interval
+  +printInterval()
+  +calculateInterval()
+  +update(observable : Observable, object : Object)
+  +intervalToJOSON() : JSONObject
 }
 
 class Task {
   -intervals : List<Interval>
-  +addInterval()
-  +duration()
-  +initHours()
-  +addInterval()
+  +Task() : Task
+  +Task(name : String, father : Project) : Task
+  +calculateDuration()
   +start()
   +stop()
+  +taskToJSON() : JSONObject
 }
 
 class Project {
-  -projects : List<Activity>
-  -initialHour : string
-  -finalHour : string
+  -activitis : List<Activity>
+  +Project() : Project
+  +Project(isRoot : boolean) : Project
+  +Project(name : String, father : Project) : Project
   +addChild(child : Activity)
-  +duration()
-  +drawSons()
+  +calculateDuration()
+  +projectToJSON() : JSONObject
 }
 
 abstract Activity {
@@ -54,10 +61,16 @@ abstract Activity {
   #initialHour : LocalDateTime
   #finalHour : LocalDateTime
   #duration : Duration
-  #project : Project
-  +printTree(node : Activity)
-  +addTime(duration : Duration)
-  +duration()
+  #projectFather : Project
+  #isRoot : boolean
+  +Activity() : Activity
+  +Activity(activity : Activity) : Activity
+  +Activity(name : String, father : Project) : Activity
+  +updateDatesAndDuration(initialDate : LocalDateTime, finalDate : LocalDateTime)
+  +calculateDuration()
+  +activityToJSON(act : JSONObject) : JSONObject
+  +printActivity()
+  +printName()
 }
 
 Clock --|> Observable
