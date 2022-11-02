@@ -46,13 +46,13 @@ public class Task extends Activity {
   }
 
   //Generate JSONObject for Intervals
-  public JSONObject taskToJson() {
+  public JSONObject taskToJSON() {
     JSONArray list = new JSONArray();
     JSONObject task = new JSONObject();
 
 
     for (int i = 0; i < intervals.size(); i++) {
-      list.put(intervals.get(i).interval());
+      list.put(intervals.get(i).intervalToJSON());
     }
     task.put("IntervalTask", list);
     return task;

@@ -49,7 +49,7 @@ public class Interval implements Observer {
   }
 
   //Create JSONObject
-  public JSONObject interval() {
+  public JSONObject intervalToJSON() {
     JSONObject interval = new JSONObject();
     interval.put("initialDate", initialDate.format(formatter));
     interval.put("finalDate", finalDate.format(formatter));

@@ -47,13 +47,13 @@ public class Project extends Activity {
   }
 
   //Generate JSONObject for Task and Project
-  public JSONObject project() {
+  public JSONObject projectToJSON() {
     JSONArray list = new JSONArray();
     JSONObject task = new JSONObject();
 
     for (int i = 0; i < activities.size(); i++) {
       if (activities.get(i) instanceof Project) {
-        list.put(((Project) activities.get(i)).project());
+        list.put(((Project) activities.get(i)).projectToJSON());
       } else if (activities.get(i) instanceof Task) {
         list.put(((Task) activities.get(i)).taskToJson());
       }
