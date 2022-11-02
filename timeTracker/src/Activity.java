@@ -10,7 +10,7 @@ public abstract class Activity {
   protected String name;
   protected LocalDateTime initialDate = null;
   protected LocalDateTime finalDate = null;
-  protected Duration duration = null; //Problem! what happens if as we do the iteration calculating durations we arrive to a Project leaf? Will the duration be 0?
+  protected Duration duration = null;
   protected Project projectFather;
   protected boolean isRoot = false;
 
@@ -49,6 +49,7 @@ public abstract class Activity {
 
   }
 
+  //Amb aquesta funció recorrem tot l'arbre recursivament per poder ver update de les dates i duracions.
   public void updateDatesAndDuration(LocalDateTime initialDate, LocalDateTime finalDate) {
     if (!this.isRoot) {
       this.calculateDuration();

@@ -12,6 +12,7 @@ public class Interval implements Observer {
   private LocalDateTime finalDate = null;
   private Duration duration = null;
   private Task myTask;
+  //Change DateTimeFormatter
   DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
   public Interval(Task father) {
