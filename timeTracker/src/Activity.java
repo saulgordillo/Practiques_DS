@@ -6,7 +6,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public abstract class Activity {
-  protected List<Activity> activities;
   protected String name;
   protected LocalDateTime initialDate = null;
   protected LocalDateTime finalDate = null;

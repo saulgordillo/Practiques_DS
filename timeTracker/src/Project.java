@@ -1,9 +1,12 @@
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+
 import java.util.LinkedList;
+import java.util.List;
 
 public class Project extends Activity {
+  protected List<Activity> activities;
 
   public Project() {
     this.name = "";
