@@ -3,7 +3,6 @@ import org.json.JSONObject;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 
 public abstract class Activity {
   protected String name;
@@ -71,7 +70,7 @@ public abstract class Activity {
   }
 
   //Create JSONObject
-  public JSONObject activity(JSONObject act) {
+  public JSONObject activityToJSON(JSONObject act) {
     act.put("duration", Math.round(this.duration.getSeconds() + ((double) this.duration.getNano() / 1000000000)));
         if (initialDate != null) {
             act.put("initialDate", initialDate.format(formatter));

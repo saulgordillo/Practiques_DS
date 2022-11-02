@@ -108,7 +108,7 @@ public class Main {
     myClock.deleteTimer();
 
     //Save data in JSONObject
-    JSONObject dataFiles = projectRoot.project();
+    JSONObject dataFiles = projectRoot.projectToJSON();
 
     //Create json file and add data
     try (FileWriter file = new FileWriter("test.json")) {

@@ -55,11 +55,11 @@ public class Project extends Activity {
       if (activities.get(i) instanceof Project) {
         list.put(((Project) activities.get(i)).projectToJSON());
       } else if (activities.get(i) instanceof Task) {
-        list.put(((Task) activities.get(i)).taskToJson());
+        list.put(((Task) activities.get(i)).taskToJSON());
       }
     }
     task.put("Projects", list);
-    super.activity(task);
+    super.activityToJSON(task);
     return task;
   }
 }
