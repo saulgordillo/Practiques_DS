@@ -3,6 +3,7 @@ import org.json.JSONObject;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -37,6 +38,7 @@ public class Interval implements Observer {
   public void update(Observable observable, Object object) {
     if (initialDate == null) {
       initialDate = (LocalDateTime) object;
+      initialDate = initialDate.minus(2, ChronoUnit.SECONDS);
     }
     finalDate = (LocalDateTime) object;
     duration = Duration.between(initialDate, finalDate);
