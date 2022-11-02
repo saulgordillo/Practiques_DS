@@ -48,9 +48,10 @@ public class Interval implements Observer {
   //Create JSONObject
   public JSONObject interval() {
     JSONObject interval = new JSONObject();
-    interval.put("initialDate", initialDate);
-    interval.put("finalDate", finalDate);
-    interval.put("task", myTask);
+    interval.put("initialDate", initialDate.format(formatter));
+    interval.put("finalDate", finalDate.format(formatter));
+    interval.put("task", myTask.name);
+    interval.put("duration", Math.round(this.duration.getSeconds() + ((double) this.duration.getNano() / 1000000000)));
     return interval;
   }
 }

@@ -72,10 +72,15 @@ public abstract class Activity {
 
   //Create JSONObject
   public JSONObject activity(JSONObject act) {
-    act.put("duration", duration);
-    act.put("initialDate", initialDate);
-    act.put("finalDate", finalDate);
-    act.put("name", name);
+    act.put("duration", Math.round(this.duration.getSeconds() + ((double) this.duration.getNano() / 1000000000)));
+        if (initialDate != null) {
+            act.put("initialDate", initialDate.format(formatter));
+        }
+        if (finalDate != null) {
+            act.put("finalDate", finalDate.format(formatter));
+        }
+
+        act.put("name", name.toString());
 
     return act;
   }
