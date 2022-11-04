@@ -47,7 +47,7 @@ public abstract class Activity {
 
   }
 
-  //Amb aquesta funció recorrem tot l'arbre recursivament per poder ver update de les dates i duracions.
+  //With this function we go through the entire tree recursively to be able to see updates of dates and durations
   public void updateDatesAndDuration(LocalDateTime initialDate, LocalDateTime finalDate) {
     if (!this.isRoot) {
       this.calculateDuration();

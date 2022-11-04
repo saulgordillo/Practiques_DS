@@ -1,7 +1,7 @@
 import java.util.TimerTask;
 
 public class ClockTask extends TimerTask {
-  //Actualitza el clock i crida al update, que crida al observer.
+  //Updates the clock and calls "update" which calls the observer
   @Override
   public void run() {
     Clock clockInstance = Clock.getInstance();
