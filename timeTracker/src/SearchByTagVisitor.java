@@ -14,7 +14,7 @@ public class SearchByTagVisitor implements Visitor {
     boolean found = false;
     int i = 0;
     while (i < p.getTags().size() && !found) {
-      if (p.getTags().get(i).toLowerCase() == tagToSearch) {
+      if (p.getTags().get(i).equalsIgnoreCase(tagToSearch)) {
         found = true;
       } else {
         i++;
@@ -24,12 +24,6 @@ public class SearchByTagVisitor implements Visitor {
     if (found) {
       activitiesWithTag.add(p);
     }
-
-    /*
-    if (Arrays.asList(p.getTags()).contains(tagToSearch)) {
-      activitiesWithTag.add(p);
-    }
-    */
 
     for (Activity activity : p.activities) {
       activity.accept(this);
@@ -44,7 +38,7 @@ public class SearchByTagVisitor implements Visitor {
     boolean found = false;
     int i = 0;
     while (i < t.getTags().size() && !found) {
-      if (t.getTags().get(i).toLowerCase() == tagToSearch) {
+      if (t.getTags().get(i).equalsIgnoreCase(tagToSearch)) {
         found = true;
       } else {
         i++;
@@ -54,12 +48,6 @@ public class SearchByTagVisitor implements Visitor {
     if (found) {
       activitiesWithTag.add(t);
     }
-
-    /*
-    if (Arrays.asList(t.getTags()).contains(tagToSearch)) {
-      activitiesWithTag.add(t);
-    }
-    */
   }
 
   @Override
@@ -68,7 +56,7 @@ public class SearchByTagVisitor implements Visitor {
   }
 
   public List<Activity> searchByTag(Activity root, String tag) {
-    tagToSearch = tag.toLowerCase();
+    tagToSearch = tag;
     root.accept(this);
     return activitiesWithTag;
   }

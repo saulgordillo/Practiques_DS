@@ -173,7 +173,7 @@ public class Main {
     //testCountingTimeAndCreateTree(projectRoot);
 
     // Test search implementation
-    String tagToSearch = "python";
+    String tagToSearch = "java";
     System.out.print("\n");
     System.out.print("Tag to search: " + tagToSearch);
     List<Activity> activitiesWithTag = testSearchByTag(projectRoot, tagToSearch);
