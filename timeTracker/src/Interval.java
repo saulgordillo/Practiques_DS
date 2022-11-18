@@ -31,6 +31,10 @@ public class Interval implements Observer {
 
   }
 
+  public void accept(Visitor visitor) {
+    visitor.visitInterval(this);
+  }
+
   // Update dates when the Observable has changed, in this case when the Clock changes
   public void update(Observable observable, Object object) {
     if (initialDate == null) {

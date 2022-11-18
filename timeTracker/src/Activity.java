@@ -3,6 +3,8 @@ import org.json.JSONObject;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Activity {
   protected String name;
@@ -11,6 +13,8 @@ public abstract class Activity {
   protected Duration duration;
   protected Project projectFather;
   protected boolean isRoot = false;
+
+  protected List<String> tags = new ArrayList<>();
 
   //Change DateTimeFormatter
   final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -21,6 +25,12 @@ public abstract class Activity {
     this.projectFather = null;
     this.duration = Duration.ofSeconds(0);
   }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public abstract List<String> getTags();
 
   //With this function we go through the entire tree recursively to be able to see updates of dates and durations
   public void updateDatesAndDuration(LocalDateTime initialDate, LocalDateTime finalDate) {
@@ -66,4 +76,5 @@ public abstract class Activity {
 
   }
 
+  public abstract void accept(Visitor v);
 }

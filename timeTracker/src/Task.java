@@ -8,11 +8,17 @@ import java.util.List;
 public class Task extends Activity {
   private final List<Interval> intervals;
 
-  public Task(String name, Project father) {
+  public Task(String name, Project father, List<String> tags) {
     this.name = name;
     this.projectFather = father;
     father.addChild(this);
     this.intervals = new LinkedList<>();
+    this.tags = tags;
+  }
+
+  @Override
+  public List<String> getTags() {
+    return this.tags;
   }
 
   public void calculateDuration() {
@@ -21,6 +27,11 @@ public class Task extends Activity {
       //We are iterating through intervals to sum every interval to get the duration of this task
       this.duration = this.duration.plus(interval.getDuration());
     }
+  }
+
+  @Override
+  public void accept(Visitor v) {
+    v.visitTask(this);
   }
 
   public void start() {
