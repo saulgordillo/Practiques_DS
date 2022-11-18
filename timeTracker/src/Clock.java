@@ -3,7 +3,7 @@ import java.util.Observable;
 import java.util.Timer;
 
 public class Clock extends Observable {
-  private Timer myTimer;
+  private final Timer myTimer;
 
   // Set a timer to execute the run() method in ClockTimer class every 2 seconds (2000 milliseconds)
   private Clock() {

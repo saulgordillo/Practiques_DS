@@ -1,36 +1,26 @@
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.time.Duration;
 import java.util.LinkedList;
 import java.util.List;
 
 public class Task extends Activity {
-  private List<Interval> intervals;
-
-  public Task() {
-    this.name = "";
-    this.projectFather = null;
-    this.intervals = new LinkedList<Interval>();
-  }
+  private final List<Interval> intervals;
 
   public Task(String name, Project father) {
     this.name = name;
     this.projectFather = father;
     father.addChild(this);
-    this.intervals = new LinkedList<Interval>();
+    this.intervals = new LinkedList<>();
   }
 
   public void calculateDuration() {
-    this.duration = duration.ofSeconds(0);
-    for (int i = 0; i < intervals.size(); i++) {
+    this.duration = Duration.ofSeconds(0);
+    for (Interval interval : intervals) {
       //We are iterating through intervals to sum every interval to get the duration of this task
-      this.duration = this.duration.plus(intervals.get(i).getDuration());
+      this.duration = this.duration.plus(interval.getDuration());
     }
-  }
-
-  //methods serves to test the abstract system
-  public void whoAmI() {
-    System.out.print("I am a Task");
   }
 
   public void start() {
@@ -51,8 +41,8 @@ public class Task extends Activity {
     JSONObject task = new JSONObject();
 
 
-    for (int i = 0; i < intervals.size(); i++) {
-      list.put(intervals.get(i).intervalToJSON());
+    for (Interval interval : intervals) {
+      list.put(interval.intervalToJSON());
     }
     task.put("IntervalTask", list);
     return task;

@@ -10,22 +10,18 @@ import java.util.Observer;
 public class Interval implements Observer {
   private LocalDateTime initialDate = null;
   private LocalDateTime finalDate = null;
-  private Duration duration = null;
-  private Task myTask;
+  private Duration duration;
+  private final Task myTask;
   //Change DateTimeFormatter
-  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+  final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
   public Interval(Task father) {
     this.myTask = father;
-    this.duration = duration.ofSeconds(0);
+    this.duration = Duration.ofSeconds(0);
   }
 
   public Duration getDuration() {
     return duration;
-  }
-
-  public LocalDateTime getFinalDate() {
-    return finalDate;
   }
 
   public void printInterval() {

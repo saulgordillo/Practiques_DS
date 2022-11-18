@@ -2,29 +2,25 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 
+import java.time.Duration;
 import java.util.LinkedList;
 import java.util.List;
 
 public class Project extends Activity {
-  protected List<Activity> activities;
-
-  public Project() {
-    this.name = "";
-    this.projectFather = null;
-    this.activities = new LinkedList<Activity>();
-  }
+  protected final List<Activity> activities;
 
   public Project(boolean isRoot) {
     this.name = "root";
     this.projectFather = null;
-    this.activities = new LinkedList<Activity>();
-    this.isRoot = true;
+    this.activities = new LinkedList<>();
+
+    this.isRoot = isRoot;
   }
 
   public Project(String name, Project father) {
     this.name = name;
     this.projectFather = father;
-    this.activities = new LinkedList<Activity>();
+    this.activities = new LinkedList<>();
     if (father != null) {
       father.addChild(this);
     }
@@ -34,15 +30,11 @@ public class Project extends Activity {
     this.activities.add(child);
   }
 
-  public String getName() {
-    return this.name;
-  }
-
   public void calculateDuration() {
-    this.duration = duration.ofSeconds(0);
-    for (int i = 0; i < activities.size(); i++) {
+    this.duration = Duration.ofSeconds(0);
+    for (Activity activity : activities) {
       //We are iterating through projects to sum every interval to get the duration of this task
-      this.duration = this.duration.plus(activities.get(i).getDuration());
+      this.duration = this.duration.plus(activity.getDuration());
     }
   }
 
@@ -51,11 +43,11 @@ public class Project extends Activity {
     JSONArray list = new JSONArray();
     JSONObject task = new JSONObject();
 
-    for (int i = 0; i < activities.size(); i++) {
-      if (activities.get(i) instanceof Project) {
-        list.put(((Project) activities.get(i)).projectToJSON());
-      } else if (activities.get(i) instanceof Task) {
-        list.put(((Task) activities.get(i)).taskToJSON());
+    for (Activity activity : activities) {
+      if (activity instanceof Project) {
+        list.put(((Project) activity).projectToJSON());
+      } else if (activity instanceof Task) {
+        list.put(((Task) activity).taskToJSON());
       }
     }
     task.put("Projects", list);

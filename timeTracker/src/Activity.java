@@ -8,43 +8,18 @@ public abstract class Activity {
   protected String name;
   protected LocalDateTime initialDate = null;
   protected LocalDateTime finalDate = null;
-  protected Duration duration = null;
+  protected Duration duration;
   protected Project projectFather;
   protected boolean isRoot = false;
 
   //Change DateTimeFormatter
-  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+  final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
 
   public Activity() {
     this.name = "";
     this.projectFather = null;
-    this.duration = duration.ofSeconds(0);
-  }
-
-  public Activity(Activity aux) {
-    this.name = aux.name;
-    this.projectFather = aux.projectFather;
-    this.duration = duration.ofSeconds(0);
-  }
-
-  public Activity(String name, Project father) {
-    this.name = name;
-    this.projectFather = father;
-    this.duration = duration.ofSeconds(0);
-  }
-
-  //abstract void addChild(Activity child);
-  public void printTree(Activity node) {
-    if (node.projectFather != null) {
-      printTree(node.projectFather);
-    }
-    node.printName();
-  }
-
-  public String getName() {
-    return this.name;
-
+    this.duration = Duration.ofSeconds(0);
   }
 
   //With this function we go through the entire tree recursively to be able to see updates of dates and durations
@@ -52,7 +27,7 @@ public abstract class Activity {
     if (!this.isRoot) {
       this.calculateDuration();
       this.projectFather.updateDatesAndDuration(initialDate, finalDate);
-    } else if (this.isRoot) {
+    } else {
       this.calculateDuration();
     }
 
@@ -70,7 +45,7 @@ public abstract class Activity {
   }
 
   //Create JSONObject
-  public JSONObject activityToJSON(JSONObject act) {
+  public void activityToJSON(JSONObject act) {
     act.put("duration", Math.round(this.duration.getSeconds() + ((double) this.duration.getNano() / 1000000000)));
         if (initialDate != null) {
             act.put("initialDate", initialDate.format(formatter));
@@ -79,9 +54,8 @@ public abstract class Activity {
             act.put("finalDate", finalDate.format(formatter));
         }
 
-        act.put("name", name.toString());
+        act.put("name", name);
 
-    return act;
   }
 
   public void printActivity() {
@@ -92,22 +66,4 @@ public abstract class Activity {
 
   }
 
-  public void printName() {
-    System.out.print("Activity: \t");
-    System.out.print(this.name);
-    //System.out.print("\tChild of ");
-    //if (this.projectFather != null) {
-    //System.out.print(this.projectFather.getName());
-    //} else {
-    //System.out.print("null");
-    //}
-    System.out.print("\tInitial date: \t");
-    System.out.print(this.initialDate);
-    System.out.print("\tFinal date: \t");
-    System.out.print(this.finalDate);
-    System.out.print("\tDuration: \t");
-    System.out.print(Math.round(this.duration.getSeconds() + ((double) this.duration.getNano() / 1000000000)));
-    //String d = this.duration.format(ISO_LOCAL_TIME);
-    System.out.print("\n");
-  }
 }

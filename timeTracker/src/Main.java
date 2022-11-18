@@ -4,7 +4,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class Main {
-  private static Project testCountingTime() throws InterruptedException {
+  private static Project testCountingTime() {
     Project projectRoot = new Project(true);
     // top level
     Project softwareDesign = new Project("software design", projectRoot);
@@ -92,7 +92,7 @@ public class Main {
     return projectRoot;
   }
 
-  public static void main(String[] args) throws InterruptedException {
+  public static void main(String[] args) {
     // Start clock
     Clock clockInstance = Clock.getInstance();
     try {
