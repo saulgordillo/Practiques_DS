@@ -11,6 +11,13 @@ import java.util.List;
 public class Task extends Activity {
   private final List<Interval> intervals;
 
+  /**
+   * Constructor to create Task from params
+   *
+   * @param name
+   * @param father
+   * @param tags
+   */
   public Task(String name, Project father, List<String> tags) {
     this.name = name;
     this.projectFather = father;
@@ -19,23 +26,37 @@ public class Task extends Activity {
     this.tags = tags;
   }
 
+  /**
+   * @return List of String containing the tags of a Task
+   */
   public List<String> getTags() {
     return this.tags;
   }
 
+  /**
+   * Calculate duration iterating through intervals to sum every Interval duration
+   */
   public void calculateDuration() {
     this.duration = Duration.ofSeconds(0);
     for (Interval interval : intervals) {
-      //We are iterating through intervals to sum every interval to get the duration of this task
       this.duration = this.duration.plus(interval.getDuration());
     }
   }
 
+  /**
+   * Accept Visitor to visit the Task
+   *
+   * @param visitor
+   */
   @Override
-  public void accept(Visitor v) {
-    v.visitTask(this);
+  public void accept(Visitor visitor) {
+    visitor.visitTask(this);
   }
 
+  /**
+   * Start Task by creating a new Interval, adding it to the List of Interval,
+   * getting the unique Clock instance and adding the new Interval as an Observer
+   */
   public void start() {
     Interval newInterval = new Interval(this);
     this.intervals.add(newInterval);
@@ -43,11 +64,17 @@ public class Task extends Activity {
     clockInstance.addObserver(newInterval);
   }
 
+  /**
+   * Stop Task by getting the unique Clock instance and deleting the Interval from the Observer list
+   */
   public void stop() {
     Clock clockInstance = Clock.getInstance();
     clockInstance.deleteObserver(intervals.get(intervals.size() - 1));
   }
 
+  /**
+   * @return JSONObject containing the info of the Task class object
+   */
   //Generate JSONObject for Intervals
   public JSONObject taskToJSON() {
     JSONArray list = new JSONArray();

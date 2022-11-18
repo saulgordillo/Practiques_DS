@@ -20,18 +20,28 @@ public abstract class Activity {
   protected boolean isRoot = false;
   protected List<String> tags = new ArrayList<>();
 
-
+  /**
+   * Default Activity constructor
+   */
   public Activity() {
     this.name = "";
     this.projectFather = null;
     this.duration = Duration.ofSeconds(0);
   }
 
+  /**
+   * @return Name of the Activity class object
+   */
   public String getName() {
     return this.name;
   }
 
-  //With this function we go through the entire tree recursively to be able to see updates of dates and durations
+  /**
+   * Updates dates and durations through the entire tree
+   *
+   * @param initialDate
+   * @param finalDate
+   */
   public void updateDatesAndDuration(LocalDateTime initialDate, LocalDateTime finalDate) {
     if (!this.isRoot) {
       this.calculateDuration();
@@ -46,13 +56,20 @@ public abstract class Activity {
     this.finalDate = finalDate;
   }
 
-  //Methods unneeded
   public abstract void calculateDuration();
 
+  /**
+   * @return Duration of the Activity class object
+   */
   public Duration getDuration() {
     return duration;
   }
 
+  /**
+   * Creates JSON item from the activity JSONObject
+   *
+   * @param act
+   */
   //Create JSONObject
   public void activityToJSON(JSONObject act) {
     act.put("duration", Math.round(this.duration.getSeconds() + ((double) this.duration.getNano() / 1000000000)));
@@ -64,9 +81,11 @@ public abstract class Activity {
     }
 
     act.put("name", name);
-
   }
 
+  /**
+   * Print Activity info (Name, Initial date, Final date and Duration)
+   */
   public void printActivity() {
     System.out.println("Activity: " + this.name + "      " + this.initialDate.format(formatter) + "       " + this.finalDate.format(formatter) + "     " + Math.round(this.duration.getSeconds() + ((double) this.duration.getNano() / 1000000000)));
     if (this.projectFather != null) {
@@ -75,5 +94,5 @@ public abstract class Activity {
 
   }
 
-  public abstract void accept(Visitor v);
+  public abstract void accept(Visitor visitor);
 }

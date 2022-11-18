@@ -18,15 +18,26 @@ public class Interval implements Observer {
   private LocalDateTime finalDate = null;
   private Duration duration;
 
+  /**
+   * Constructor to create an Interval with a Task father
+   *
+   * @param father
+   */
   public Interval(Task father) {
     this.myTask = father;
     this.duration = Duration.ofSeconds(0);
   }
 
+  /**
+   * @return Duration of the Interval class object
+   */
   public Duration getDuration() {
     return duration;
   }
 
+  /**
+   * Print Interval info (Initial date, Final date and Duration)
+   */
   public void printInterval() {
     System.out.println("Interval: " + "                  " + this.initialDate.format(formatter) + "   " + this.finalDate.format(formatter) + "            " + Math.round(this.duration.getSeconds() + ((double) this.duration.getNano() / 1000000000)));
 
@@ -34,11 +45,22 @@ public class Interval implements Observer {
 
   }
 
+  /**
+   * Accept Visitor to visit the Interval
+   *
+   * @param visitor
+   */
   public void accept(Visitor visitor) {
     visitor.visitInterval(this);
   }
 
-  // Update dates when the Observable has changed, in this case when the core.Clock changes
+  /**
+   * Updates date when the Observable has changed, in this case when the Clock instance changes
+   *
+   * @param observable the observable object.
+   * @param object     an argument passed to the {@code notifyObservers}
+   *                   method.
+   */
   public void update(Observable observable, Object object) {
     if (initialDate == null) {
       initialDate = (LocalDateTime) object;
@@ -48,9 +70,11 @@ public class Interval implements Observer {
     duration = Duration.between(initialDate, finalDate);
     myTask.updateDatesAndDuration(initialDate, finalDate);
     this.printInterval();
-    //myTask.printTree(myTask);
   }
 
+  /**
+   * @return JSONObject containing the info of the Interval class object
+   */
   //Create JSONObject
   public JSONObject intervalToJSON() {
     JSONObject interval = new JSONObject();

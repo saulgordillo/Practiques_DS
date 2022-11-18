@@ -13,6 +13,11 @@ public class SearchByTagVisitor implements Visitor {
   private final List<Activity> activitiesWithTag = new ArrayList<>();
   private String tagToSearch;
 
+  /**
+   * Visit Project and see if the searching tag is contained in the List of String with the tags of a Project
+   *
+   * @param p
+   */
   @Override
   public void visitProject(Project p) {
     System.out.print("\n");
@@ -37,6 +42,11 @@ public class SearchByTagVisitor implements Visitor {
     }
   }
 
+  /**
+   * Visit Task and see if the searching tag is contained in the List of String with the tags of a Task
+   *
+   * @param t
+   */
   @Override
   public void visitTask(Task t) {
     System.out.print("\n");
@@ -57,11 +67,23 @@ public class SearchByTagVisitor implements Visitor {
     }
   }
 
+  /**
+   * Unused in SearchByTagVisitor because an Interval cannot have tags
+   *
+   * @param inter
+   */
   @Override
   public void visitInterval(Interval inter) {
     // core.Interval does not have tags, so this visitor does not implement this
   }
 
+  /**
+   * Starts in root and searches for the tag implementing Visitor
+   *
+   * @param root
+   * @param tag
+   * @return List of Activity containing all activities with the tag searched
+   */
   public List<Activity> searchByTag(Activity root, String tag) {
     tagToSearch = tag;
     root.accept(this);
