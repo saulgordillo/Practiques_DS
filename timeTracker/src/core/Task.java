@@ -1,5 +1,8 @@
+package core;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
+import visitor.Visitor;
 
 import java.time.Duration;
 import java.util.LinkedList;
@@ -16,7 +19,6 @@ public class Task extends Activity {
     this.tags = tags;
   }
 
-  @Override
   public List<String> getTags() {
     return this.tags;
   }

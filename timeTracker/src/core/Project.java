@@ -1,6 +1,8 @@
+package core;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
-
+import visitor.Visitor;
 
 import java.time.Duration;
 import java.util.LinkedList;
@@ -31,9 +33,12 @@ public class Project extends Activity {
     this.activities.add(child);
   }
 
-  @Override
   public List<String> getTags() {
     return this.tags;
+  }
+
+  public List<Activity> getActivities() {
+    return this.activities;
   }
 
   public void calculateDuration() {
@@ -49,7 +54,7 @@ public class Project extends Activity {
     v.visitProject(this);
   }
 
-  //Generate JSONObject for Task and Project
+  //Generate JSONObject for core.Task and core.Project
   public JSONObject projectToJSON() {
     JSONArray list = new JSONArray();
     JSONObject task = new JSONObject();

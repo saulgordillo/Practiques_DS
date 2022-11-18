@@ -1,4 +1,9 @@
+import core.Activity;
+import core.Clock;
+import core.Project;
+import core.Task;
 import org.json.JSONObject;
+import visitor.SearchByTagVisitor;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -179,11 +184,11 @@ public class Main {
     List<Activity> activitiesWithTag = testSearchByTag(projectRoot, tagToSearch);
     System.out.print("\n");
     System.out.print("\n");
-    System.out.print("Activities with tag " + tagToSearch + ":");
+    System.out.print("Activities with tag '" + tagToSearch + "': [" + activitiesWithTag.size() + "]");
 
     for (Activity activity : activitiesWithTag) {
       System.out.print("\n");
-      System.out.print("-> " + activity.name);
+      System.out.print("-> " + activity.getName());
     }
 
     // Stop clock

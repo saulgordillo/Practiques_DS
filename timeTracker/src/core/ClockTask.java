@@ -1,3 +1,5 @@
+package core;
+
 import java.util.TimerTask;
 
 public class ClockTask extends TimerTask {

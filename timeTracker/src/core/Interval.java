@@ -1,4 +1,7 @@
+package core;
+
 import org.json.JSONObject;
+import visitor.Visitor;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
@@ -8,12 +11,12 @@ import java.util.Observable;
 import java.util.Observer;
 
 public class Interval implements Observer {
+  //Change DateTimeFormatter
+  final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+  private final Task myTask;
   private LocalDateTime initialDate = null;
   private LocalDateTime finalDate = null;
   private Duration duration;
-  private final Task myTask;
-  //Change DateTimeFormatter
-  final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
   public Interval(Task father) {
     this.myTask = father;
@@ -35,7 +38,7 @@ public class Interval implements Observer {
     visitor.visitInterval(this);
   }
 
-  // Update dates when the Observable has changed, in this case when the Clock changes
+  // Update dates when the Observable has changed, in this case when the core.Clock changes
   public void update(Observable observable, Object object) {
     if (initialDate == null) {
       initialDate = (LocalDateTime) object;

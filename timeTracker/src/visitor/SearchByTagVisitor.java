@@ -1,3 +1,10 @@
+package visitor;
+
+import core.Activity;
+import core.Interval;
+import core.Project;
+import core.Task;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +32,7 @@ public class SearchByTagVisitor implements Visitor {
       activitiesWithTag.add(p);
     }
 
-    for (Activity activity : p.activities) {
+    for (Activity activity : p.getActivities()) {
       activity.accept(this);
     }
   }
@@ -52,7 +59,7 @@ public class SearchByTagVisitor implements Visitor {
 
   @Override
   public void visitInterval(Interval inter) {
-    // Interval does not have tags, so this visitor does not implement this
+    // core.Interval does not have tags, so this visitor does not implement this
   }
 
   public List<Activity> searchByTag(Activity root, String tag) {
