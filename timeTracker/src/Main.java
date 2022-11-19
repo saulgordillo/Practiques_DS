@@ -4,6 +4,8 @@ import core.Project;
 import core.Task;
 import org.json.JSONObject;
 import visitor.SearchByTagVisitor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -11,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
+  static Logger loggerMain = LoggerFactory.getLogger("Main");
   private static void createTree(Project projectRoot) {
     List<String> emptyTag = new ArrayList<>();
     List<String> softwareDesignTags = new ArrayList<>();
@@ -92,7 +95,7 @@ public class Main {
     Task firstMilestone = new Task("first milestone", projectTimeTracker, firstMilestoneTags);
 
     transportation.start();
-    System.out.println("transportation starts");
+    loggerMain.info("transportation starts");
 
     try {
       Thread.sleep(6000);
@@ -101,7 +104,7 @@ public class Main {
     }
 
     transportation.stop();
-    System.out.println("transportation stops");
+    loggerMain.info("transportation stops");
 
     try {
       Thread.sleep(2000);
@@ -109,7 +112,7 @@ public class Main {
       System.out.print("Thread.sleep()");
     }
 
-    System.out.println("firstList starts");
+    loggerMain.info("firstList starts");
     firstList.start();
 
     try {
@@ -118,7 +121,7 @@ public class Main {
       System.out.print("Thread.sleep()");
     }
 
-    System.out.println("secondList starts");
+    loggerMain.info("secondList starts");
     secondList.start();
 
     try {
@@ -128,7 +131,7 @@ public class Main {
     }
 
     firstList.stop();
-    System.out.println("firstList stop");
+    loggerMain.info("firstList stop");
 
     try {
       Thread.sleep(2000);
@@ -137,7 +140,7 @@ public class Main {
     }
 
     secondList.stop();
-    System.out.println("secondList stop");
+    loggerMain.info("secondList stop");
 
 
     try {
@@ -146,7 +149,7 @@ public class Main {
       System.out.print("Thread.sleep()");
     }
 
-    System.out.println("transportation starts");
+    loggerMain.info("transportation starts");
     transportation.start();
     try {
       Thread.sleep(4000);
@@ -154,7 +157,7 @@ public class Main {
       System.out.print("Thread.sleep()");
     }
     transportation.stop();
-    System.out.println("transportation stop");
+    loggerMain.info("transportation stop");
   }
 
   private static List<Activity> testSearchByTag(Project projectRoot, String tagToSearch) {

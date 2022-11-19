@@ -1,10 +1,15 @@
 package core;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.time.LocalDateTime;
 import java.util.Observable;
 import java.util.Timer;
 
 public class Clock extends Observable {
+	
+  static Logger loggerClock = LoggerFactory.getLogger("core.Observable.Clock");
   // Singleton pattern
   private static Clock uniqueInstanceClock = null;
   private final Timer myTimer;

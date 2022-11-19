@@ -2,6 +2,8 @@ package core;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import visitor.Visitor;
 
 import java.time.Duration;
@@ -9,7 +11,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Project extends Activity {
+  static Logger loggerProject = LoggerFactory.getLogger("core.Activity.Project");
   protected final List<Activity> activities;
+ 
 
   /**
    * Constructor to create a Project choosing if it is root or not
@@ -68,9 +72,14 @@ public class Project extends Activity {
    * Calculate duration iterating through activities to sum every Activity duration
    */
   public void calculateDuration() {
+	loggerProject.info("Initial duration: ");
     this.duration = Duration.ofSeconds(0);
     for (Activity activity : activities) {
       this.duration = this.duration.plus(activity.getDuration());
+    }
+	
+	if (this.duration.toSeconds() < 0) {
+      loggerProject.warn("Duration incorrect");
     }
   }
 

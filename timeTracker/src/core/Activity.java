@@ -1,6 +1,8 @@
 package core;
 
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import visitor.Visitor;
 
 import java.time.Duration;
@@ -10,6 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Activity {
+   
+   static Logger loggerActivity = LoggerFactory.getLogger("core.Activity");
   //Change DateTimeFormatter
   final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
   protected String name;
@@ -95,4 +99,24 @@ public abstract class Activity {
   }
 
   public abstract void accept(Visitor visitor);
+  
+  
+  public void printName() {
+    loggerActivity.info("Activity: \t");
+    loggerActivity.info(this.name);
+    //System.out.print("\tChild of ");
+    //if (this.projectFather != null) {
+    //System.out.print(this.projectFather.getName());
+    //} else {
+    //System.out.print("null");
+    //}
+    loggerActivity.info("\tInitial date: \t");
+    loggerActivity.info(this.initialDate.toString());
+    loggerActivity.info("\tFinal date: \t");
+    loggerActivity.info(this.finalDate.toString());
+    loggerActivity.info("\tDuration: \t");
+    System.out.print(Math.round(this.duration.getSeconds() + ((double) this.duration.getNano() / 1000000000)));
+    //String d = this.duration.format(ISO_LOCAL_TIME);
+    System.out.print("\n");
+  }
 }

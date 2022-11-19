@@ -4,6 +4,8 @@ import core.Activity;
 import core.Interval;
 import core.Project;
 import core.Task;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +13,9 @@ import java.util.List;
 
 public class SearchByTagVisitor implements Visitor {
   private final List<Activity> activitiesWithTag = new ArrayList<>();
+  static Logger loggerSearchByTagVisitor = LoggerFactory.getLogger("visitor.Visitor.SearchByTagVisitor");
   private String tagToSearch;
+  
 
   /**
    * Visit Project and see if the searching tag is contained in the List of String with the tags of a Project

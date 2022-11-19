@@ -2,6 +2,8 @@ package core;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import visitor.Visitor;
 
 import java.time.Duration;
@@ -9,6 +11,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Task extends Activity {
+  static Logger loggerTask = LoggerFactory.getLogger("core.Activity.Task");
   private final List<Interval> intervals;
 
   /**
@@ -37,9 +40,14 @@ public class Task extends Activity {
    * Calculate duration iterating through intervals to sum every Interval duration
    */
   public void calculateDuration() {
+	loggerTask.info("Initial duration: ");
     this.duration = Duration.ofSeconds(0);
     for (Interval interval : intervals) {
       this.duration = this.duration.plus(interval.getDuration());
+    }
+	
+	if (this.duration.toSeconds() < 0) {
+      loggerTask.warn("Duration incorrect");
     }
   }
 
@@ -58,6 +66,7 @@ public class Task extends Activity {
    * getting the unique Clock instance and adding the new Interval as an Observer
    */
   public void start() {
+	loggerTask.info("Interval starts: ");
     Interval newInterval = new Interval(this);
     this.intervals.add(newInterval);
     Clock clockInstance = Clock.getInstance();
@@ -70,6 +79,7 @@ public class Task extends Activity {
   public void stop() {
     Clock clockInstance = Clock.getInstance();
     clockInstance.deleteObserver(intervals.get(intervals.size() - 1));
+	loggerTask.info("Stop interval: ");
   }
 
   /**

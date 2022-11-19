@@ -1,6 +1,8 @@
 package core;
 
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import visitor.Visitor;
 
 import java.time.Duration;
@@ -11,6 +13,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 public class Interval implements Observer {
+  static Logger loggerInterval = LoggerFactory.getLogger("core.Observer.Interval");
   //Change DateTimeFormatter
   final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
   private final Task myTask;
@@ -66,6 +69,7 @@ public class Interval implements Observer {
       initialDate = (LocalDateTime) object;
       initialDate = initialDate.minus(2, ChronoUnit.SECONDS);
     }
+	loggerInterval.info("Exists an Initial ");
     finalDate = (LocalDateTime) object;
     duration = Duration.between(initialDate, finalDate);
     myTask.updateDatesAndDuration(initialDate, finalDate);
