@@ -2,20 +2,19 @@ import core.Activity;
 import core.Clock;
 import core.Project;
 import core.Task;
-import org.json.JSONObject;
-import visitor.SearchByTagVisitor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import visitor.SearchByTagVisitor;
 
 public class Main {
   static Logger loggerMain = LoggerFactory.getLogger("Main");
+
   private static void createTree(Project projectRoot) {
-    List<String> emptyTag = new ArrayList<>();
     List<String> softwareDesignTags = new ArrayList<>();
     softwareDesignTags.add("java");
     softwareDesignTags.add("flutter");
@@ -34,6 +33,7 @@ public class Main {
     List<String> firstMilestoneTags = new ArrayList<>();
     firstMilestoneTags.add("Java");
     firstMilestoneTags.add("IntelliJ");
+    List<String> emptyTag = new ArrayList<>();
 
     // top level
     Project softwareDesign = new Project("software design", projectRoot, softwareDesignTags);
@@ -56,7 +56,6 @@ public class Main {
   }
 
   private static void testCountingTimeAndCreateTree(Project projectRoot) {
-    List<String> emptyTag = new ArrayList<>();
     List<String> softwareDesignTags = new ArrayList<>();
     softwareDesignTags.add("java");
     softwareDesignTags.add("flutter");
@@ -75,6 +74,7 @@ public class Main {
     List<String> firstMilestoneTags = new ArrayList<>();
     firstMilestoneTags.add("Java");
     firstMilestoneTags.add("IntelliJ");
+    List<String> emptyTag = new ArrayList<>();
 
     // top level
     Project softwareDesign = new Project("software design", projectRoot, softwareDesignTags);
@@ -187,7 +187,8 @@ public class Main {
     List<Activity> activitiesWithTag = testSearchByTag(projectRoot, tagToSearch);
     System.out.print("\n");
     System.out.print("\n");
-    System.out.print("Activities with tag '" + tagToSearch + "': [" + activitiesWithTag.size() + "]");
+    System.out.print("Activities with tag '" + tagToSearch
+            + "': [" + activitiesWithTag.size() + "]");
 
     for (Activity activity : activitiesWithTag) {
       System.out.print("\n");

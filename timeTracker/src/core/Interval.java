@@ -1,16 +1,16 @@
 package core;
 
-import org.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import visitor.Visitor;
-
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.Observable;
 import java.util.Observer;
+import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import visitor.Visitor;
+
 
 public class Interval implements Observer {
   static Logger loggerInterval = LoggerFactory.getLogger("core.Observer.Interval");
@@ -22,9 +22,9 @@ public class Interval implements Observer {
   private Duration duration;
 
   /**
-   * Constructor to create an Interval with a Task father
+   * Constructor to create an Interval with a Task father.
    *
-   * @param father
+   * @param father - Father activity of the interval.
    */
   public Interval(Task father) {
     this.myTask = father;
@@ -39,29 +39,33 @@ public class Interval implements Observer {
   }
 
   /**
-   * Print Interval info (Initial date, Final date and Duration)
+   * Print Interval info (Initial date, Final date and Duration).
    */
   public void printInterval() {
-    System.out.println("Interval: " + "                  " + this.initialDate.format(formatter) + "   " + this.finalDate.format(formatter) + "            " + Math.round(this.duration.getSeconds() + ((double) this.duration.getNano() / 1000000000)));
+    System.out.println("Interval: " + "                  "
+            + this.initialDate.format(formatter) + "   "
+            + this.finalDate.format(formatter) + "            "
+            + Math.round(this.duration.getSeconds()
+            + ((double) this.duration.getNano() / 1000000000)));
 
     myTask.printActivity();
 
   }
 
   /**
-   * Accept Visitor to visit the Interval
+   * Accept Visitor to visit the Interval.
    *
-   * @param visitor
+   * @param visitor - The object which makes reference to the visitor
    */
   public void accept(Visitor visitor) {
     visitor.visitInterval(this);
   }
 
   /**
-   * Updates date when the Observable has changed, in this case when the Clock instance changes
+   * Updates date when the Observable has changed, in this case when the Clock instance changes.
    *
-   * @param observable the observable object.
-   * @param object     an argument passed to the {@code notifyObservers}
+   * @param observable - the observable object.
+   * @param object - an argument passed to the {@code notifyObservers}
    *                   method.
    */
   public void update(Observable observable, Object object) {
@@ -69,7 +73,7 @@ public class Interval implements Observer {
       initialDate = (LocalDateTime) object;
       initialDate = initialDate.minus(2, ChronoUnit.SECONDS);
     }
-	loggerInterval.info("Exists an Initial ");
+    loggerInterval.info("Exists an Initial ");
     finalDate = (LocalDateTime) object;
     duration = Duration.between(initialDate, finalDate);
     myTask.updateDatesAndDuration(initialDate, finalDate);
@@ -80,12 +84,14 @@ public class Interval implements Observer {
    * @return JSONObject containing the info of the Interval class object
    */
   //Create JSONObject
+  @SuppressWarnings("checkstyle:AbbreviationAsWordInName")
   public JSONObject intervalToJSON() {
     JSONObject interval = new JSONObject();
     interval.put("initialDate", initialDate.format(formatter));
     interval.put("finalDate", finalDate.format(formatter));
     interval.put("task", myTask.name);
-    interval.put("duration", Math.round(this.duration.getSeconds() + ((double) this.duration.getNano() / 1000000000)));
+    interval.put("duration", Math.round(this.duration.getSeconds()
+            + ((double) this.duration.getNano() / 1000000000)));
     return interval;
   }
 }

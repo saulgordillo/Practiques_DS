@@ -1,12 +1,12 @@
 package core;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.time.LocalDateTime;
 import java.util.Observable;
 import java.util.Timer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+@SuppressWarnings("checkstyle:SummaryJavadoc")
 public class Clock extends Observable {
 	
   static Logger loggerClock = LoggerFactory.getLogger("core.Observable.Clock");
@@ -15,7 +15,7 @@ public class Clock extends Observable {
   private final Timer myTimer;
 
   /**
-   * Set a timer to execute the run() method in ClockTimer class every 2 seconds (2000 milliseconds)
+   * Set a timer to execute run() method in ClockTimer class every 2 seconds (2000 milliseconds).
    */
   private Clock() {
     myTimer = new Timer();
@@ -23,7 +23,7 @@ public class Clock extends Observable {
   }
 
   /**
-   * @return unique Clock instance
+   * @return Instance of the Clock
    */
   public static Clock getInstance() {
     if (uniqueInstanceClock == null) {
@@ -34,7 +34,7 @@ public class Clock extends Observable {
   }
 
   /**
-   * Notify all observers to update with the actual date
+   * Notify all observers to update with the actual date.
    */
   public void tick() {
     setChanged();
@@ -42,7 +42,7 @@ public class Clock extends Observable {
   }
 
   /**
-   * Delete timer created in class Clock constructor
+   * Delete timer created in class Clock constructor.
    */
   public void deleteTimer() {
     myTimer.cancel();

@@ -1,14 +1,13 @@
 package core;
 
+import java.time.Duration;
+import java.util.LinkedList;
+import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import visitor.Visitor;
-
-import java.time.Duration;
-import java.util.LinkedList;
-import java.util.List;
 
 public class Project extends Activity {
   static Logger loggerProject = LoggerFactory.getLogger("core.Activity.Project");
@@ -16,9 +15,9 @@ public class Project extends Activity {
  
 
   /**
-   * Constructor to create a Project choosing if it is root or not
+   * Constructor to create a Project choosing if it is root or not.
    *
-   * @param isRoot
+   * @param isRoot - Bool that indicates us if the project is the root project
    */
   public Project(boolean isRoot) {
     this.name = "root";
@@ -29,11 +28,11 @@ public class Project extends Activity {
   }
 
   /**
-   * Constructor to create a Project with params
+   * Constructor to create a Project with params.
    *
-   * @param name
-   * @param father
-   * @param tags
+   * @param name - Name of the project
+   * @param father - Who is the father of the project
+   * @param tags - Tags associated with the project
    */
   public Project(String name, Project father, List<String> tags) {
     this.name = name;
@@ -46,9 +45,9 @@ public class Project extends Activity {
   }
 
   /**
-   * Add Activity object to a Project as a child
+   * Add Activity object to a Project as a child.
    *
-   * @param child
+   * @param child - Actual child of this project
    */
   public void addChild(Activity child) {
     this.activities.add(child);
@@ -69,24 +68,23 @@ public class Project extends Activity {
   }
 
   /**
-   * Calculate duration iterating through activities to sum every Activity duration
+   * Calculate duration iterating through activities to sum every Activity duration.
    */
   public void calculateDuration() {
-	loggerProject.info("Initial duration: ");
+    loggerProject.info("Initial duration: ");
     this.duration = Duration.ofSeconds(0);
     for (Activity activity : activities) {
       this.duration = this.duration.plus(activity.getDuration());
     }
-	
-	if (this.duration.toSeconds() < 0) {
+    if (this.duration.toSeconds() < 0) {
       loggerProject.warn("Duration incorrect");
     }
   }
 
   /**
-   * Accept Visitor to visit the Project
+   * Accept Visitor to visit the Project.
    *
-   * @param visitor
+   * @param visitor - Object that makes reference to the class visitor
    */
   @Override
   public void accept(Visitor visitor) {
@@ -97,6 +95,7 @@ public class Project extends Activity {
    * @return JSONObject containing the info of the Activity (Project/Task) class object
    */
   //Generate JSONObject for core.Task and core.Project
+  @SuppressWarnings("checkstyle:AbbreviationAsWordInName")
   public JSONObject projectToJSON() {
     JSONArray list = new JSONArray();
     JSONObject task = new JSONObject();
