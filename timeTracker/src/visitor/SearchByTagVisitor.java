@@ -24,8 +24,8 @@ public class SearchByTagVisitor implements Visitor {
    */
   @Override
   public void visitProject(Project p) {
-    System.out.print("\n");
-    System.out.print("Tags inside project " + p.getName() + " : " + p.getTags());
+
+    loggerSearchByTagVisitor.debug("Tags inside project " + p.getName() + " : " + p.getTags());
 
     boolean found = false;
     int i = 0;
@@ -51,8 +51,7 @@ public class SearchByTagVisitor implements Visitor {
    */
   @Override
   public void visitTask(Task t) {
-    System.out.print("\n");
-    System.out.print("Tags inside task " + t.getName() + " : " + t.getTags());
+    loggerSearchByTagVisitor.debug("Tags inside task " + t.getName() + " : " + t.getTags());
 
     boolean found = false;
     int i = 0;
@@ -87,7 +86,9 @@ public class SearchByTagVisitor implements Visitor {
    */
   public List<Activity> searchByTag(Activity root, String tag) {
     tagToSearch = tag;
+	loggerSearchByTagVisitor.debug("Tag to search: " + tagToSearch);
     root.accept(this);
+	loggerSearchByTagVisitor.debug("Activities with tags: " +  tagToSearch + " : " +  activitiesWithTag);
     return activitiesWithTag;
   }
 }

@@ -77,7 +77,7 @@ public class Task extends Activity {
   public void stop() {
     Clock clockInstance = Clock.getInstance();
     clockInstance.deleteObserver(intervals.get(intervals.size() - 1));
-    loggerTask.info("Stop interval: ");
+    loggerTask.info("Interval stops");
   }
 
   /**

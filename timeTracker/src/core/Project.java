@@ -99,12 +99,16 @@ public class Project extends Activity {
   public JSONObject projectToJSON() {
     JSONArray list = new JSONArray();
     JSONObject task = new JSONObject();
-
+	loggerProject.info("Json starts");
     for (Activity activity : activities) {
       if (activity instanceof Project) {
+		loggerProject.info("It's a Project");
         list.put(((Project) activity).projectToJSON());
       } else if (activity instanceof Task) {
+		loggerProject.info("It's a Task");
         list.put(((Task) activity).taskToJSON());
+      } else {
+        loggerProject.warn("It's not a task and a project");
       }
     }
     task.put("Projects", list);

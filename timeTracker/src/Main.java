@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 import visitor.SearchByTagVisitor;
 
 public class Main {
-  static Logger loggerMain = LoggerFactory.getLogger("Main");
+  
 
   private static void createTree(Project projectRoot) {
     List<String> softwareDesignTags = new ArrayList<>();
@@ -95,7 +95,7 @@ public class Main {
     Task firstMilestone = new Task("first milestone", projectTimeTracker, firstMilestoneTags);
 
     transportation.start();
-    loggerMain.info("transportation starts");
+    System.out.println("transportation starts");
 
     try {
       Thread.sleep(6000);
@@ -104,7 +104,7 @@ public class Main {
     }
 
     transportation.stop();
-    loggerMain.info("transportation stops");
+     System.out.println("transportation stops");
 
     try {
       Thread.sleep(2000);
@@ -112,7 +112,7 @@ public class Main {
       System.out.print("Thread.sleep()");
     }
 
-    loggerMain.info("firstList starts");
+     System.out.println("firstList starts");
     firstList.start();
 
     try {
@@ -121,7 +121,7 @@ public class Main {
       System.out.print("Thread.sleep()");
     }
 
-    loggerMain.info("secondList starts");
+     System.out.println("secondList starts");
     secondList.start();
 
     try {
@@ -131,7 +131,7 @@ public class Main {
     }
 
     firstList.stop();
-    loggerMain.info("firstList stop");
+     System.out.println("firstList stop");
 
     try {
       Thread.sleep(2000);
@@ -140,7 +140,7 @@ public class Main {
     }
 
     secondList.stop();
-    loggerMain.info("secondList stop");
+     System.out.println("secondList stop");
 
 
     try {
@@ -149,7 +149,7 @@ public class Main {
       System.out.print("Thread.sleep()");
     }
 
-    loggerMain.info("transportation starts");
+     System.out.println("transportation starts");
     transportation.start();
     try {
       Thread.sleep(4000);
@@ -157,7 +157,7 @@ public class Main {
       System.out.print("Thread.sleep()");
     }
     transportation.stop();
-    loggerMain.info("transportation stop");
+     System.out.println"transportation stop");
   }
 
   private static List<Activity> testSearchByTag(Project projectRoot, String tagToSearch) {

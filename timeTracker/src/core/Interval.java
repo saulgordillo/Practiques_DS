@@ -69,11 +69,12 @@ public class Interval implements Observer {
    *                   method.
    */
   public void update(Observable observable, Object object) {
+	loggerInterval.info("Start to count the interval");
     if (initialDate == null) {
       initialDate = (LocalDateTime) object;
       initialDate = initialDate.minus(2, ChronoUnit.SECONDS);
     }
-    loggerInterval.info("Exists an Initial ");
+    loggerInterval.info("Exists an Initial, updating date and duration");
     finalDate = (LocalDateTime) object;
     duration = Duration.between(initialDate, finalDate);
     myTask.updateDatesAndDuration(initialDate, finalDate);
@@ -86,6 +87,7 @@ public class Interval implements Observer {
   //Create JSONObject
   @SuppressWarnings("checkstyle:AbbreviationAsWordInName")
   public JSONObject intervalToJSON() {
+	loggerInterval.info("Put interval information to JSON");
     JSONObject interval = new JSONObject();
     interval.put("initialDate", initialDate.format(formatter));
     interval.put("finalDate", finalDate.format(formatter));

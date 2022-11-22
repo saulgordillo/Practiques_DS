@@ -49,9 +49,11 @@ public abstract class Activity {
    */
   public void updateDatesAndDuration(LocalDateTime initialDate, LocalDateTime finalDate) {
     if (!this.isRoot) {
+	  loggerActivity.info("update duration from projects below project root");
       this.calculateDuration();
       this.projectFather.updateDatesAndDuration(initialDate, finalDate);
     } else {
+	  loggerActivity.info("update duration from project root");
       this.calculateDuration();
     }
 
@@ -80,13 +82,18 @@ public abstract class Activity {
   //Create JSONObject
   @SuppressWarnings("checkstyle:AbbreviationAsWordInName")
   public void activityToJSON(JSONObject act) {
+	loggerActivity.info("Put information in correct format inside JSON");
     act.put("duration", Math.round(this.duration.getSeconds()
             + ((double) this.duration.getNano() / 1000000000)));
     if (initialDate != null) {
       act.put("initialDate", initialDate.format(formatter));
+    } else {
+      loggerActivity.warn("this task exists");
     }
     if (finalDate != null) {
       act.put("finalDate", finalDate.format(formatter));
+    } else {
+      loggerActivity.warn("this task has finished");
     }
 
     act.put("name", name);
