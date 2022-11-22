@@ -5,17 +5,17 @@ import core.Activity;
 import core.Interval;
 import core.Project;
 import core.Task;
-import java.util.ArrayList;
-import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SearchByTagVisitor implements Visitor {
+  static Logger loggerSearchByTagVisitor = LoggerFactory.getLogger("visitor.Visitor.SearchByTagVisitor");
+
   private final List<Activity> activitiesWithTag = new ArrayList<>();
-  static Logger loggerSearchByTagVisitor =
-          LoggerFactory.getLogger("visitor.Visitor.SearchByTagVisitor");
   private String tagToSearch;
-  
 
   /**
    * Visit Project and see if the searching tag is contained in the List with the tags of a Project.
@@ -24,21 +24,22 @@ public class SearchByTagVisitor implements Visitor {
    */
   @Override
   public void visitProject(Project p) {
-
-    loggerSearchByTagVisitor.debug("Tags inside project " + p.getName() + " : " + p.getTags());
+    loggerSearchByTagVisitor.debug("Tags inside Project '" + p.getName() + "' : " + p.getTags());
 
     boolean found = false;
     int i = 0;
     while (i < p.getTags().size() && !found) {
-      if (p.getTags().get(i).equalsIgnoreCase(tagToSearch)) {
+      if (p.getTags().get(i).equalsIgnoreCase(this.tagToSearch)) {
         found = true;
       } else {
         i++;
       }
     }
+
     if (found) {
-      activitiesWithTag.add(p);
+      this.activitiesWithTag.add(p);
     }
+
     for (Activity activity : p.getActivities()) {
       activity.accept(this);
     }
@@ -51,19 +52,20 @@ public class SearchByTagVisitor implements Visitor {
    */
   @Override
   public void visitTask(Task t) {
-    loggerSearchByTagVisitor.debug("Tags inside task " + t.getName() + " : " + t.getTags());
+    loggerSearchByTagVisitor.debug("Tags inside Task '" + t.getName() + "' : " + t.getTags());
 
     boolean found = false;
     int i = 0;
     while (i < t.getTags().size() && !found) {
-      if (t.getTags().get(i).equalsIgnoreCase(tagToSearch)) {
+      if (t.getTags().get(i).equalsIgnoreCase(this.tagToSearch)) {
         found = true;
       } else {
         i++;
       }
     }
+
     if (found) {
-      activitiesWithTag.add(t);
+      this.activitiesWithTag.add(t);
     }
   }
 
@@ -74,21 +76,23 @@ public class SearchByTagVisitor implements Visitor {
    */
   @Override
   public void visitInterval(Interval inter) {
-    // core.Interval does not have tags, so this visitor does not implement this
+    // Interval does not have tags, so this visitor does not implement this
   }
 
   /**
    * Starts in root and searches for the tag implementing Visitor.
    *
    * @param root - Project root of all projects.
-   * @param tag - Tag associated with the activities.
+   * @param tag  - Tag associated with the activities.
    * @return List of Activity containing all activities with the tag searched
    */
   public List<Activity> searchByTag(Activity root, String tag) {
-    tagToSearch = tag;
-	loggerSearchByTagVisitor.debug("Tag to search: " + tagToSearch);
+    this.tagToSearch = tag;
+    loggerSearchByTagVisitor.info("Tag to search: '" + this.tagToSearch + "'");
+
     root.accept(this);
-	loggerSearchByTagVisitor.debug("Activities with tags: " +  tagToSearch + " : " +  activitiesWithTag);
+
+    loggerSearchByTagVisitor.info("Activities with tag '" + this.tagToSearch + "': " + this.activitiesWithTag);
     return activitiesWithTag;
   }
 }

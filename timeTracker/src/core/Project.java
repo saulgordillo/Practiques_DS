@@ -1,18 +1,19 @@
 package core;
 
-import java.time.Duration;
-import java.util.LinkedList;
-import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import visitor.Visitor;
 
+import java.time.Duration;
+import java.util.LinkedList;
+import java.util.List;
+
 public class Project extends Activity {
   static Logger loggerProject = LoggerFactory.getLogger("core.Activity.Project");
+
   protected final List<Activity> activities;
- 
 
   /**
    * Constructor to create a Project choosing if it is root or not.
@@ -24,21 +25,23 @@ public class Project extends Activity {
     this.projectFather = null;
     this.activities = new LinkedList<>();
 
+    loggerProject.info("Create Project root");
     this.isRoot = isRoot;
   }
 
   /**
    * Constructor to create a Project with params.
    *
-   * @param name - Name of the project
+   * @param name   - Name of the project
    * @param father - Who is the father of the project
-   * @param tags - Tags associated with the project
+   * @param tags   - Tags associated with the project
    */
   public Project(String name, Project father, List<String> tags) {
     this.name = name;
     this.projectFather = father;
     this.activities = new LinkedList<>();
     if (father != null) {
+      loggerProject.info("Add Project '" + this.getName() + "' as child of Project father '" + father.getName() + "'");
       father.addChild(this);
     }
     this.tags = tags;
@@ -71,13 +74,15 @@ public class Project extends Activity {
    * Calculate duration iterating through activities to sum every Activity duration.
    */
   public void calculateDuration() {
-    loggerProject.info("Initial duration: ");
     this.duration = Duration.ofSeconds(0);
+    loggerProject.debug("Calculate duration");
+
     for (Activity activity : activities) {
       this.duration = this.duration.plus(activity.getDuration());
     }
+
     if (this.duration.toSeconds() < 0) {
-      loggerProject.warn("Duration incorrect");
+      loggerProject.error("Duration calculation incorrect");
     }
   }
 
@@ -94,23 +99,23 @@ public class Project extends Activity {
   /**
    * @return JSONObject containing the info of the Activity (Project/Task) class object
    */
-  //Generate JSONObject for core.Task and core.Project
-  @SuppressWarnings("checkstyle:AbbreviationAsWordInName")
   public JSONObject projectToJSON() {
+    loggerProject.info("Create JSON from Project, Task and Interval");
+
+    loggerProject.debug("Project to JSONObject");
     JSONArray list = new JSONArray();
     JSONObject task = new JSONObject();
-	loggerProject.info("Json starts");
+
     for (Activity activity : activities) {
       if (activity instanceof Project) {
-		loggerProject.info("It's a Project");
+        loggerProject.debug("Activity is a Project");
         list.put(((Project) activity).projectToJSON());
       } else if (activity instanceof Task) {
-		loggerProject.info("It's a Task");
+        loggerProject.debug("Activity is a Task");
         list.put(((Task) activity).taskToJSON());
-      } else {
-        loggerProject.warn("It's not a task and a project");
       }
     }
+
     task.put("Projects", list);
     super.activityToJSON(task);
     return task;

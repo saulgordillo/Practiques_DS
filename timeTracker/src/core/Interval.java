@@ -1,19 +1,20 @@
 package core;
 
+import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import visitor.Visitor;
+
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.Observable;
 import java.util.Observer;
-import org.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import visitor.Visitor;
-
 
 public class Interval implements Observer {
   static Logger loggerInterval = LoggerFactory.getLogger("core.Observer.Interval");
+
   //Change DateTimeFormatter
   final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
   private final Task myTask;
@@ -43,10 +44,10 @@ public class Interval implements Observer {
    */
   public void printInterval() {
     System.out.println("Interval: " + "                  "
-            + this.initialDate.format(formatter) + "   "
-            + this.finalDate.format(formatter) + "            "
-            + Math.round(this.duration.getSeconds()
-            + ((double) this.duration.getNano() / 1000000000)));
+        + this.initialDate.format(formatter) + "   "
+        + this.finalDate.format(formatter) + "            "
+        + Math.round(this.duration.getSeconds()
+        + ((double) this.duration.getNano() / 1000000000)));
 
     myTask.printActivity();
 
@@ -65,16 +66,16 @@ public class Interval implements Observer {
    * Updates date when the Observable has changed, in this case when the Clock instance changes.
    *
    * @param observable - the observable object.
-   * @param object - an argument passed to the {@code notifyObservers}
+   * @param object     - an argument passed to the {@code notifyObservers}
    *                   method.
    */
   public void update(Observable observable, Object object) {
-	loggerInterval.info("Start to count the interval");
     if (initialDate == null) {
+      loggerInterval.debug("Initialize Date");
       initialDate = (LocalDateTime) object;
       initialDate = initialDate.minus(2, ChronoUnit.SECONDS);
     }
-    loggerInterval.info("Exists an Initial, updating date and duration");
+    loggerInterval.debug("Update Date and Duration");
     finalDate = (LocalDateTime) object;
     duration = Duration.between(initialDate, finalDate);
     myTask.updateDatesAndDuration(initialDate, finalDate);
@@ -84,16 +85,15 @@ public class Interval implements Observer {
   /**
    * @return JSONObject containing the info of the Interval class object
    */
-  //Create JSONObject
-  @SuppressWarnings("checkstyle:AbbreviationAsWordInName")
   public JSONObject intervalToJSON() {
-	loggerInterval.info("Put interval information to JSON");
+    loggerInterval.debug("Interval to JSONObject");
     JSONObject interval = new JSONObject();
+
     interval.put("initialDate", initialDate.format(formatter));
     interval.put("finalDate", finalDate.format(formatter));
     interval.put("task", myTask.name);
-    interval.put("duration", Math.round(this.duration.getSeconds()
-            + ((double) this.duration.getNano() / 1000000000)));
+    interval.put("duration", Math.round(this.duration.getSeconds() + ((double) this.duration.getNano() / 1000000000)));
+
     return interval;
   }
 }

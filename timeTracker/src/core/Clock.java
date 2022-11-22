@@ -1,15 +1,15 @@
 package core;
 
-import java.time.LocalDateTime;
-import java.util.Observable;
-import java.util.Timer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@SuppressWarnings("checkstyle:SummaryJavadoc")
+import java.time.LocalDateTime;
+import java.util.Observable;
+import java.util.Timer;
+
 public class Clock extends Observable {
-	
   static Logger loggerClock = LoggerFactory.getLogger("core.Observable.Clock");
+
   // Singleton pattern
   private static Clock uniqueInstanceClock = null;
   private final Timer myTimer;
@@ -19,7 +19,9 @@ public class Clock extends Observable {
    */
   private Clock() {
     myTimer = new Timer();
-    myTimer.scheduleAtFixedRate(new ClockTask(), 0, 2000);
+    long period = 2000;
+    loggerClock.info("Schedule ClockTask (implementation of TimerTask) at " + period + "ms period");
+    myTimer.scheduleAtFixedRate(new ClockTask(), 0, period);
   }
 
   /**
@@ -27,6 +29,7 @@ public class Clock extends Observable {
    */
   public static Clock getInstance() {
     if (uniqueInstanceClock == null) {
+      loggerClock.info("Create unique Clock instance");
       uniqueInstanceClock = new Clock();
     }
 
@@ -37,6 +40,7 @@ public class Clock extends Observable {
    * Notify all observers to update with the actual date.
    */
   public void tick() {
+    loggerClock.debug("Notify observers");
     setChanged();
     notifyObservers(LocalDateTime.now());
   }
@@ -45,6 +49,7 @@ public class Clock extends Observable {
    * Delete timer created in class Clock constructor.
    */
   public void deleteTimer() {
+    loggerClock.info("Delete (cancel) timer ClockTask");
     myTimer.cancel();
   }
 }

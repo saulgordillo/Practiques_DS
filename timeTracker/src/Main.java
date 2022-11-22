@@ -2,17 +2,16 @@ import core.Activity;
 import core.Clock;
 import core.Project;
 import core.Task;
+import org.json.JSONObject;
+import visitor.SearchByTagVisitor;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import visitor.SearchByTagVisitor;
 
 public class Main {
-  
+
 
   private static void createTree(Project projectRoot) {
     List<String> softwareDesignTags = new ArrayList<>();
@@ -95,7 +94,7 @@ public class Main {
     Task firstMilestone = new Task("first milestone", projectTimeTracker, firstMilestoneTags);
 
     transportation.start();
-    System.out.println("transportation starts");
+    System.out.print("transportation starts\n");
 
     try {
       Thread.sleep(6000);
@@ -104,7 +103,7 @@ public class Main {
     }
 
     transportation.stop();
-     System.out.println("transportation stops");
+    System.out.print("transportation stops\n");
 
     try {
       Thread.sleep(2000);
@@ -112,7 +111,7 @@ public class Main {
       System.out.print("Thread.sleep()");
     }
 
-     System.out.println("firstList starts");
+    System.out.print("firstList starts\n");
     firstList.start();
 
     try {
@@ -121,7 +120,7 @@ public class Main {
       System.out.print("Thread.sleep()");
     }
 
-     System.out.println("secondList starts");
+    System.out.print("secondList starts\n");
     secondList.start();
 
     try {
@@ -131,7 +130,7 @@ public class Main {
     }
 
     firstList.stop();
-     System.out.println("firstList stop");
+    System.out.println("firstList stops");
 
     try {
       Thread.sleep(2000);
@@ -140,7 +139,7 @@ public class Main {
     }
 
     secondList.stop();
-     System.out.println("secondList stop");
+    System.out.print("secondList stops\n");
 
 
     try {
@@ -149,7 +148,7 @@ public class Main {
       System.out.print("Thread.sleep()");
     }
 
-     System.out.println("transportation starts");
+    System.out.print("transportation starts\n");
     transportation.start();
     try {
       Thread.sleep(4000);
@@ -157,7 +156,7 @@ public class Main {
       System.out.print("Thread.sleep()");
     }
     transportation.stop();
-     System.out.println"transportation stop");
+    System.out.print("transportation stops");
   }
 
   private static List<Activity> testSearchByTag(Project projectRoot, String tagToSearch) {
@@ -175,25 +174,22 @@ public class Main {
     }
 
     Project projectRoot = new Project(true);
-    createTree(projectRoot);
 
     // Test timeTracker implementation
-    //testCountingTimeAndCreateTree(projectRoot);
+    testCountingTimeAndCreateTree(projectRoot);
 
     // Test search implementation
+    //createTree(projectRoot);
     String tagToSearch = "java";
-    System.out.print("\n");
-    System.out.print("Tag to search: " + tagToSearch);
+    System.out.print("\n\nTag to search: " + tagToSearch + "\n");
     List<Activity> activitiesWithTag = testSearchByTag(projectRoot, tagToSearch);
-    System.out.print("\n");
-    System.out.print("\n");
     System.out.print("Activities with tag '" + tagToSearch
-            + "': [" + activitiesWithTag.size() + "]");
+        + "': [" + activitiesWithTag.size() + "]");
 
     for (Activity activity : activitiesWithTag) {
-      System.out.print("\n");
-      System.out.print("-> " + activity.getName());
+      System.out.print("\n-> " + activity.getName());
     }
+    System.out.print("\n");
 
     // Stop clock
     Clock myClock = Clock.getInstance();
@@ -203,7 +199,7 @@ public class Main {
     JSONObject dataFiles = projectRoot.projectToJSON();
 
     //Create json file and add data
-    try (FileWriter file = new FileWriter("test.json")) {
+    try (FileWriter file = new FileWriter("data.json")) {
       file.write(dataFiles.toString());
       file.flush();
     } catch (IOException e) {

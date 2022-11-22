@@ -1,18 +1,19 @@
 package core;
 
-import java.time.Duration;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import visitor.Visitor;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Activity {
-   
   static Logger loggerActivity = LoggerFactory.getLogger("core.Activity");
+
   //Change DateTimeFormatter
   final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
   protected String name;
@@ -45,15 +46,14 @@ public abstract class Activity {
    * Updates dates and durations through the entire tree.
    *
    * @param initialDate - Initial date of the activity
-   * @param finalDate - Final date of the activity
+   * @param finalDate   - Final date of the activity
    */
   public void updateDatesAndDuration(LocalDateTime initialDate, LocalDateTime finalDate) {
+    loggerActivity.debug("Update Duration from Projects upwards until Project 'root'");
     if (!this.isRoot) {
-	  loggerActivity.info("update duration from projects below project root");
       this.calculateDuration();
       this.projectFather.updateDatesAndDuration(initialDate, finalDate);
     } else {
-	  loggerActivity.info("update duration from project root");
       this.calculateDuration();
     }
 
@@ -79,21 +79,20 @@ public abstract class Activity {
    *
    * @param act - Objecte JSON
    */
-  //Create JSONObject
-  @SuppressWarnings("checkstyle:AbbreviationAsWordInName")
   public void activityToJSON(JSONObject act) {
-	loggerActivity.info("Put information in correct format inside JSON");
+    loggerActivity.debug("Activity to JSONObject");
     act.put("duration", Math.round(this.duration.getSeconds()
-            + ((double) this.duration.getNano() / 1000000000)));
+        + ((double) this.duration.getNano() / 1000000000)));
+
     if (initialDate != null) {
       act.put("initialDate", initialDate.format(formatter));
     } else {
-      loggerActivity.warn("this task exists");
+      loggerActivity.debug("Already exists in JSON: Not adding");
     }
     if (finalDate != null) {
       act.put("finalDate", finalDate.format(formatter));
     } else {
-      loggerActivity.warn("this task has finished");
+      loggerActivity.debug("Already exists in JSON: Not adding");
     }
 
     act.put("name", name);
@@ -104,36 +103,35 @@ public abstract class Activity {
    */
   public void printActivity() {
     System.out.println("Activity: " + this.name + "      "
-            + this.initialDate.format(formatter) + "       "
-            + this.finalDate.format(formatter) + "     "
-            + Math.round(this.duration.getSeconds()
-            + ((double) this.duration.getNano() / 1000000000)));
+        + this.initialDate.format(formatter) + "       "
+        + this.finalDate.format(formatter) + "     "
+        + Math.round(this.duration.getSeconds()
+        + ((double) this.duration.getNano() / 1000000000)));
+
     if (this.projectFather != null) {
       this.projectFather.printActivity();
     }
-
   }
 
   public abstract void accept(Visitor visitor);
-  
-  
-  public void printName() {
+
+  /**
+   * Print Activity info
+   */
+  public void printInfo() {
     loggerActivity.info("Activity: \t");
     loggerActivity.info(this.name);
-    //System.out.print("\tChild of ");
-    //if (this.projectFather != null) {
-    //System.out.print(this.projectFather.getName());
-    //} else {
-    //System.out.print("null");
-    //}
+    loggerActivity.info("\tChild of ");
+    if (this.projectFather != null) {
+      loggerActivity.info(this.projectFather.getName());
+    } else {
+      loggerActivity.info("null");
+    }
     loggerActivity.info("\tInitial date: \t");
     loggerActivity.info(this.initialDate.toString());
     loggerActivity.info("\tFinal date: \t");
     loggerActivity.info(this.finalDate.toString());
     loggerActivity.info("\tDuration: \t");
-    System.out.print(Math.round(this.duration.getSeconds()
-            + ((double) this.duration.getNano() / 1000000000)));
-    //String d = this.duration.format(ISO_LOCAL_TIME);
-    System.out.print("\n");
+    loggerActivity.info("" + Math.round(this.duration.getSeconds() + ((double) this.duration.getNano() / 1000000000)));
   }
 }
