@@ -14,6 +14,10 @@ public class Task extends Activity {
   static Logger loggerTask = LoggerFactory.getLogger("core.Activity.Task");
 
   private final List<Interval> intervals;
+  
+  private boolean invariant() {
+    return ((duration.getSeconds() >=0) && (intervals != null));
+  }
 
   /**
    * Constructor to create Task from params.
@@ -23,11 +27,23 @@ public class Task extends Activity {
    * @param tags   - Tags that may be associated with the task
    */
   public Task(String name, Project father, List<String> tags) {
+	  
+	 //Pre-condition
+    assert(!name.isEmpty()): "Error, empty name";
+    assert(father.getName() != null);
+    assert(tags != null);
+	
     this.name = name;
     this.projectFather = father;
     father.addChild(this);
     this.intervals = new LinkedList<>();
     this.tags = tags;
+	
+	//Post-condition
+    assert invariant();
+    assert(!this.name.isEmpty()): "Error, empty name";
+    assert(this.projectFather.getName() != null);
+    assert(this.tags != null);
   }
 
   /**
@@ -41,6 +57,10 @@ public class Task extends Activity {
    * Calculate duration iterating through intervals to sum every Interval duration.
    */
   public void calculateDuration() {
+	
+	//Pre-condition
+    assert invariant();
+	
     this.duration = Duration.ofSeconds(0);
     loggerTask.debug("Calculate duration");
 
@@ -51,6 +71,9 @@ public class Task extends Activity {
     if (this.duration.toSeconds() < 0) {
       loggerTask.error("Duration calculation incorrect");
     }
+	
+	//Post-condition
+    assert  invariant();
   }
 
   /**
@@ -68,26 +91,46 @@ public class Task extends Activity {
    * getting the unique Clock instance and adding the new Interval as an Observer.
    */
   public void start() {
+	//Pre-condition
+    assert invariant();
+	
     loggerTask.info("New Interval starts");
     Interval newInterval = new Interval(this);
     this.intervals.add(newInterval);
     Clock clockInstance = Clock.getInstance();
     clockInstance.addObserver(newInterval);
+	
+	//Post-condition
+    assert  invariant();
   }
 
   /**
    * Stop Task by getting the unique instance and deleting the Interval from the Observer list.
    */
   public void stop() {
+	int contClocks = Clock.getInstance().countObservers();
+    //Pre-condition
+    assert invariant();
+    assert (!intervals.isEmpty());
+    assert (contClocks != 0);
+	
     Clock clockInstance = Clock.getInstance();
     clockInstance.deleteObserver(intervals.get(intervals.size() - 1));
     loggerTask.info("Interval stops");
+	
+	//Post-condition
+    assert invariant();
+    assert (!intervals.isEmpty());
+    assert (contClocks == clockInstance.countObservers() -1);
   }
 
   /**
    * @return JSONObject containing the info of the Task class object
    */
   public JSONObject taskToJSON() {
+	//Pre-condition
+    assert invariant();
+	
     loggerTask.debug("Task to JSONObject");
 
     JSONArray list = new JSONArray();
@@ -98,6 +141,12 @@ public class Task extends Activity {
     }
 
     task.put("IntervalTask", list);
+	
+	//Post-condition
+    assert invariant();
+    assert (list!= null);
+    assert (task != null);
+	
     return task;
   }
 }
