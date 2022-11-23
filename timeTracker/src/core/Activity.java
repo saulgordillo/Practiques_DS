@@ -11,6 +11,11 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Abstract class that contains the shared
+ * attributes and methods between Project and Task,
+ * also implements Composite pattern.
+ */
 public abstract class Activity {
   static Logger loggerActivity = LoggerFactory.getLogger("core.Activity");
 

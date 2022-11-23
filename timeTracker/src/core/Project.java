@@ -10,14 +10,15 @@ import java.time.Duration;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Class which extends Activity and implements
+ * the specific methods and attributes of a Project,
+ * uses Composite pattern together with Activity and Task.
+ */
 public class Project extends Activity {
   static Logger loggerProject = LoggerFactory.getLogger("core.Activity.Project");
 
   protected final List<Activity> activities;
-  
-  private boolean invariant() {
-    return (projectFather.duration.toSeconds() >= 0);
-  }
 
   /**
    * Constructor to create a Project choosing if it is root or not.
@@ -41,11 +42,11 @@ public class Project extends Activity {
    * @param tags   - Tags associated with the project
    */
   public Project(String name, Project father, List<String> tags) {
-	//Pre-conditions
-    assert(!name.isEmpty()): "Error, empty name";
-    assert(father.getName() != null);
-    assert(tags.size() >=0);
-	
+    //Pre-conditions
+    assert (!name.isEmpty()) : "Error, empty name";
+    assert (father.getName() != null);
+    assert (tags.size() >= 0);
+
     this.name = name;
     this.projectFather = father;
     this.activities = new LinkedList<>();
@@ -54,12 +55,16 @@ public class Project extends Activity {
       father.addChild(this);
     }
     this.tags = tags;
-	
-	//Post-conditions
-	assert invariant();
-    assert(!this.name.isEmpty()): "Error, empty name";
-    assert(this.projectFather.getName() != null);
-    assert(this.tags.size() >=0);
+
+    //Post-conditions
+    assert invariant();
+    assert (!this.name.isEmpty()) : "Error, empty name";
+    assert (this.projectFather.getName() != null);
+    assert (this.tags.size() >= 0);
+  }
+
+  private boolean invariant() {
+    return (projectFather.duration.toSeconds() >= 0);
   }
 
   /**
@@ -68,14 +73,14 @@ public class Project extends Activity {
    * @param child - Actual child of this project
    */
   public void addChild(Activity child) {
-	//Pre-conditions
-	assert(this.activities != null);
-    assert(child != null);
-	
+    //Pre-conditions
+    assert (this.activities != null);
+    assert (child != null);
+
     this.activities.add(child);
-	
-	//Post-conditions
-	assert(this.activities.size() >=0);
+
+    //Post-conditions
+    assert (this.activities.size() >= 0);
   }
 
   /**
@@ -96,11 +101,11 @@ public class Project extends Activity {
    * Calculate duration iterating through activities to sum every Activity duration.
    */
   public void calculateDuration() {
-	
-	//Pre-condition
+
+    //Pre-condition
     assert invariant();
-    assert(!duration.isNegative());
-	
+    assert (!duration.isNegative());
+
     this.duration = Duration.ofSeconds(0);
     loggerProject.debug("Calculate duration");
 
@@ -111,10 +116,10 @@ public class Project extends Activity {
     if (this.duration.toSeconds() < 0) {
       loggerProject.error("Duration calculation incorrect");
     }
-	
-	//Post-condition
+
+    //Post-condition
     assert invariant();
-    assert(!duration.isNegative());
+    assert (!duration.isNegative());
   }
 
   /**
@@ -149,10 +154,10 @@ public class Project extends Activity {
 
     task.put("Projects", list);
     super.activityToJSON(task);
-	
-	//Post-condition
+
+    //Post-condition
     assert (activities != null);
-	
+
     return task;
   }
 }

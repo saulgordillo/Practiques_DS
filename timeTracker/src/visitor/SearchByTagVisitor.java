@@ -11,6 +11,13 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class which implements Visitor,
+ * it's objective is to search for an asked tag
+ * inside the different activities
+ * and return the ones who have it.
+ * Uses Visitor pattern to do the job.
+ */
 public class SearchByTagVisitor implements Visitor {
   static Logger loggerSearchByTagVisitor = LoggerFactory.getLogger("visitor.Visitor.SearchByTagVisitor");
 

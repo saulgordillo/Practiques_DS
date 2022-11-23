@@ -7,6 +7,11 @@ import java.time.LocalDateTime;
 import java.util.Observable;
 import java.util.Timer;
 
+/**
+ * Class which extends Observable and works
+ * as a real time clock for our app,
+ * implements Singleton pattern.
+ */
 public class Clock extends Observable {
   static Logger loggerClock = LoggerFactory.getLogger("core.Observable.Clock");
 

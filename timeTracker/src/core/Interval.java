@@ -12,6 +12,10 @@ import java.time.temporal.ChronoUnit;
 import java.util.Observable;
 import java.util.Observer;
 
+/**
+ * Class which implements Observer to update when Clock changes,
+ * this class saves the info of an interval of time of a Task.
+ */
 public class Interval implements Observer {
   static Logger loggerInterval = LoggerFactory.getLogger("core.Observer.Interval");
 
