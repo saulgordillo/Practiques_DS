@@ -1,0 +1,121 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+package java.util{
+    abstract Observable {
+    +addObserver(observer : Observer)
+    +deleteObserver(observer : Observer)
+    +setChanged()
+    +notifyObservers(observable : Observable, object : Object)
+  }
+
+  interface Observer {
+    +update(observable : Observable, object : Object)
+  }
+
+  Observable --> Observer : observers
+}
+
+class Clock {
+  -myTimer: Timer
+  -Clock()
+  +getInstance()
+  +tick()
+  +deleteTimer()
+}
+
+class Interval {
+  -loggerInterval : Logger
+  -initialDate : LocalDateTime
+  -finalDate : LocalDateTime
+  -duration : Duration
+  -myTask : Task
+  +Interval(task : Task) : Interval
+  +printInterval()
+  +calculateInterval()
+  +update(observable : Observable, object : Object)
+  +intervalToJOSON() : JSONObject
+  +accept(visitor : Visitor)
+}
+
+class Task {
+  -intervals : List<Interval>
+  -loggerTask : Logger
+  -invariant : boolean
+  +Task() : Task
+  +Task(name : String, father : Project, tags : List<String>) : Task
+  +calculateDuration()
+  +start()
+  +stop()
+  +taskToJSON() : JSONObject
+  +accept(visitor : Visitor)
+}
+
+class Project {
+  #activities : List<Activity>
+  -loggerProject : Logger
+  +Project() : Project
+  +Project(isRoot : boolean) : Project
+  +Project(name : String, father : Project, tag : List<String>) : Project
+  +addChild(child : Activity)
+  +calculateDuration()
+  +projectToJSON() : JSONObject
+  +accept(visitor : Visitor)
+  +invariant() : boolean
+
+}
+
+abstract Activity {
+  #name : string
+  #initialHour : LocalDateTime
+  #finalHour : LocalDateTime
+  #duration : Duration
+  #projectFather : Project
+  #isRoot : boolean
+  #tags : List<String>
+  -loggerActivity : Logger
+
+  +Activity() : Activity
+  +Activity(activity : Activity) : Activity
+  +Activity(name : String, father : Project) : Activity
+  +updateDatesAndDuration(initialDate : LocalDateTime, finalDate : LocalDateTime)
+  +calculateDuration()
+  +activityToJSON(act : JSONObject) : JSONObject
+  +printActivity()
+  +printInfo()
+  +accept(visitor : Visitor)
+
+}
+
+interface Visitor {
+    +visitProject(visitor : Visitor)
+    +visitTask(visitor : Visitor)
+    +visitInterval(visitor : Visitor)
+
+}
+
+class SearchByTagVisitor{
+    -loggerSearchByTagVisitor : Logger
+    -activitiesWithTag : List<Activity>
+    -tagToSearch : String
+
+    +visitProject(project : Project)
+    +visitTask(task : Task)
+    +visitInterval(interval : Interval)
+    +searchByTag(root : Activity, tag : String) : List<Activity>
+
+
+}
+
+Clock --|> Observable
+Interval ..|> Observer
+Interval "n" --* "1" Task : intervals
+Task --|> Activity
+Project --|> Activity
+Project "n" --* "1" Activity : projects
+
+Visitor --> Activity
+
+SearchByTagVisitor --|> Visitor
+
+@enduml
