@@ -43,9 +43,9 @@ public class Project extends Activity {
    */
   public Project(String name, Project father, List<String> tags) {
     //Pre-conditions
-    assert (!name.isEmpty()) : "Error, empty name";
-    assert (father.getName() != null);
-    assert (tags.size() >= 0);
+    assert (!name.isEmpty()) : "Error: empty name";
+    assert (father.getName() != null) : "Error: empty father name";
+    assert (tags.size() >= 0) : "Error: tags size < 0";
 
     this.name = name;
     this.projectFather = father;
@@ -57,12 +57,16 @@ public class Project extends Activity {
     this.tags = tags;
 
     //Post-conditions
-    assert invariant();
-    assert (!this.name.isEmpty()) : "Error, empty name";
-    assert (this.projectFather.getName() != null);
-    assert (this.tags.size() >= 0);
+    assert invariant() : "Error: duration < 0";
+    assert (!this.name.isEmpty()) : "Error: empty name";
+    assert (this.projectFather.getName() != null) : "Error: empty father name";
+    assert (this.activities != null) : "Error: attribute activities equals null (not initialized)";
+    assert (this.tags.size() == tags.size()) : "Error: this.tags is not equal (size) to parameter tags";
   }
 
+  /**
+   * @return Boolean, true if duration >= 0, false otherwise
+   */
   private boolean invariant() {
     return (projectFather.duration.toSeconds() >= 0);
   }
@@ -74,13 +78,13 @@ public class Project extends Activity {
    */
   public void addChild(Activity child) {
     //Pre-conditions
-    assert (this.activities != null);
-    assert (child != null);
+    assert (this.activities != null) : "Error: attribute activities equals null (not initialized)";
+    assert (child != null) : "Error: cannot add null as child";
 
     this.activities.add(child);
 
     //Post-conditions
-    assert (this.activities.size() >= 0);
+    assert (this.activities.size() > 0) : "Error: child not added properly";
   }
 
   /**
@@ -101,10 +105,8 @@ public class Project extends Activity {
    * Calculate duration iterating through activities to sum every Activity duration.
    */
   public void calculateDuration() {
-
     //Pre-condition
-    assert invariant();
-    assert (!duration.isNegative());
+    assert invariant() : "Error: duration < 0";
 
     this.duration = Duration.ofSeconds(0);
     loggerProject.debug("Calculate duration");
@@ -118,8 +120,7 @@ public class Project extends Activity {
     }
 
     //Post-condition
-    assert invariant();
-    assert (!duration.isNegative());
+    assert invariant() : "Error: duration < 0";
   }
 
   /**
@@ -142,7 +143,10 @@ public class Project extends Activity {
     JSONArray list = new JSONArray();
     JSONObject task = new JSONObject();
 
-    for (Activity activity : activities) {
+    //Pre-condition
+    assert (this.activities != null) : "Error: activities is null";
+
+    for (Activity activity : this.activities) {
       if (activity instanceof Project) {
         loggerProject.debug("Activity is a Project");
         list.put(((Project) activity).projectToJSON());
@@ -156,7 +160,10 @@ public class Project extends Activity {
     super.activityToJSON(task);
 
     //Post-condition
-    assert (activities != null);
+    assert (list != null) : "Error: JSONObject not created properly";
+    assert (list instanceof JSONArray) : "Error: list not instance of JSONArray";
+    assert (task != null) : "Error: JSONObject not created properly";
+    assert (task instanceof JSONObject) : "Error: task not instance of JSONObject";
 
     return task;
   }

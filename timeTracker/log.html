@@ -23314,3 +23314,3618 @@ TD.Exception { background: #A2AEE8; font-family: courier, monospace;}
 <td class="Logger">core.Activity</td>
 <td class="Message">Activity to JSONObject</td>
 </tr>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>Logback Log Messages</title>
+<style  type="text/css">
+table { margin-left: 2em; margin-right: 2em; border-left: 2px solid #AAA; }
+TR.even { background: #FFFFFF; }
+TR.odd { background: #EAEAEA; }
+TR.warn TD.Level, TR.error TD.Level, TR.fatal TD.Level {font-weight: bold; color: #FF4040 }
+TD { padding-right: 1ex; padding-left: 1ex; border-right: 2px solid #AAA; }
+TD.Time, TD.Date { text-align: right; font-family: courier, monospace; font-size: smaller; }
+TD.Thread { text-align: left; }
+TD.Level { text-align: right; }
+TD.Logger { text-align: left; }
+TR.header { background: #596ED5; color: #FFF; font-weight: bold; font-size: larger; }
+TD.Exception { background: #A2AEE8; font-family: courier, monospace;}
+</style>
+
+  </head>
+<body>
+<hr/>
+<p>Log session start time Wed Nov 23 09:32:38 CET 2022</p><p></p>
+
+<table cellspacing="0">
+<tr class="header">
+<td class="RelativeTime">RelativeTime</td>
+<td class="Thread">Thread</td>
+<td class="MDC">MDC</td>
+<td class="Level">Level</td>
+<td class="Logger">Logger</td>
+<td class="Message">Message</td>
+</tr>
+
+
+<tr class="info even">
+<td class="RelativeTime">625</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">INFO</td>
+<td class="Logger">core.Observable.Clock</td>
+<td class="Message">Create unique Clock instance</td>
+</tr>
+
+<tr class="info odd">
+<td class="RelativeTime">625</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">INFO</td>
+<td class="Logger">core.Observable.Clock</td>
+<td class="Message">Schedule ClockTask (implementation of TimerTask) at 2000ms period</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">641</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Observable.Clock</td>
+<td class="Message">Notify observers</td>
+</tr>
+
+<tr class="info odd">
+<td class="RelativeTime">2157</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">INFO</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Create Project root</td>
+</tr>
+
+<tr class="info even">
+<td class="RelativeTime">2157</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">INFO</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Add Project &#39;software design&#39; as child of Project father &#39;root&#39;</td>
+</tr>
+
+<tr class="info odd">
+<td class="RelativeTime">2157</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">INFO</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Add Project &#39;software testing&#39; as child of Project father &#39;root&#39;</td>
+</tr>
+
+<tr class="info even">
+<td class="RelativeTime">2157</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">INFO</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Add Project &#39;database&#39; as child of Project father &#39;root&#39;</td>
+</tr>
+
+<tr class="info odd">
+<td class="RelativeTime">2189</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">INFO</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Add Project &#39;problems&#39; as child of Project father &#39;software design&#39;</td>
+</tr>
+
+<tr class="info even">
+<td class="RelativeTime">2189</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">INFO</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Add Project &#39;project time tracker&#39; as child of Project father &#39;software design&#39;</td>
+</tr>
+
+<tr class="info odd">
+<td class="RelativeTime">2189</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">INFO</td>
+<td class="Logger">core.Activity.Task</td>
+<td class="Message">New Interval starts</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">2642</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Observable.Clock</td>
+<td class="Message">Notify observers</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">2642</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Observer.Interval</td>
+<td class="Message">Initialize Date</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">2642</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Observer.Interval</td>
+<td class="Message">Update Date and Duration</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">2642</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">2642</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Task</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">2642</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">2642</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">2674</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: root</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">2674</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of null</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">2674</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:38</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">2674</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:32:40</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">2674</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 2</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">2674</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: transportation</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">2674</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of root</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">2674</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:38</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">2689</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:32:40</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">2689</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 2</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">4643</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Observable.Clock</td>
+<td class="Message">Notify observers</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">4648</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Observer.Interval</td>
+<td class="Message">Update Date and Duration</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">4648</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">4648</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Task</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">4648</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">4648</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">4648</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: root</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">4658</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of null</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">4658</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:38</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">4658</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:32:42</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">4658</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 4</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">4658</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: transportation</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">4658</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of root</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">4658</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:38</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">4658</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:32:42</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">4658</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 4</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">6655</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Observable.Clock</td>
+<td class="Message">Notify observers</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">6655</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Observer.Interval</td>
+<td class="Message">Update Date and Duration</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">6655</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">6655</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Task</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">6655</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">6655</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">6655</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: root</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">6655</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of null</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">6670</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:38</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">6670</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:32:44</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">6670</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 6</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">6670</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: transportation</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">6670</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of root</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">6670</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:38</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">6670</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:32:44</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">6670</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 6</td>
+</tr>
+
+<tr class="info odd">
+<td class="RelativeTime">8229</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">INFO</td>
+<td class="Logger">core.Activity.Task</td>
+<td class="Message">Interval stops</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">8655</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Observable.Clock</td>
+<td class="Message">Notify observers</td>
+</tr>
+
+<tr class="info odd">
+<td class="RelativeTime">10231</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">INFO</td>
+<td class="Logger">core.Activity.Task</td>
+<td class="Message">New Interval starts</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">10644</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Observable.Clock</td>
+<td class="Message">Notify observers</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">10644</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Observer.Interval</td>
+<td class="Message">Initialize Date</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">10644</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Observer.Interval</td>
+<td class="Message">Update Date and Duration</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">10644</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">10644</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Task</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">10644</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">10644</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">10644</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">10644</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">10644</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">10644</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">10644</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: root</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">10659</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of null</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">10659</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:38</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">10659</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:32:48</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">10659</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 8</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">10659</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: software design</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">10659</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of root</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">10659</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:46</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">10659</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:32:48</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">10659</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 2</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">10659</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: problems</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">10675</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of software design</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">10675</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:46</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">10675</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:32:48</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">10675</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 2</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">10675</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: first list</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">10675</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of problems</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">10675</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:46</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">10675</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:32:48</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">10675</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 2</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">12653</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Observable.Clock</td>
+<td class="Message">Notify observers</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">12653</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Observer.Interval</td>
+<td class="Message">Update Date and Duration</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">12653</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">12653</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Task</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">12653</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">12653</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">12653</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">12653</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">12653</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">12653</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">12653</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: root</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">12669</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of null</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">12669</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:38</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">12669</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:32:50</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">12669</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 10</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">12669</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: software design</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">12669</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of root</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">12669</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:46</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">12669</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:32:50</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">12669</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 4</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">12669</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: problems</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">12669</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of software design</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">12669</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:46</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">12669</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:32:50</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">12684</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 4</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">12684</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: first list</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">12684</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of problems</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">12684</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:46</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">12684</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:32:50</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">12684</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 4</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">14650</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Observable.Clock</td>
+<td class="Message">Notify observers</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">14650</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Observer.Interval</td>
+<td class="Message">Update Date and Duration</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">14650</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">14650</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Task</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">14650</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">14650</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">14650</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">14650</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">14650</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">14650</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">14650</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: root</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">14650</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of null</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">14666</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:38</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">14666</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:32:52</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">14666</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 12</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">14666</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: software design</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">14666</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of root</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">14666</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:46</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">14666</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:32:52</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">14666</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 6</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">14666</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: problems</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">14666</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of software design</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">14666</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:46</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">14666</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:32:52</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">14682</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 6</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">14682</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: first list</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">14682</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of problems</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">14682</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:46</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">14682</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:32:52</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">14682</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 6</td>
+</tr>
+
+<tr class="info odd">
+<td class="RelativeTime">16239</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">INFO</td>
+<td class="Logger">core.Activity.Task</td>
+<td class="Message">New Interval starts</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">16649</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Observable.Clock</td>
+<td class="Message">Notify observers</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">16649</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Observer.Interval</td>
+<td class="Message">Initialize Date</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">16649</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Observer.Interval</td>
+<td class="Message">Update Date and Duration</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">16649</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">16649</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Task</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">16649</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">16649</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">16649</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">16649</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">16649</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">16649</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">16649</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: root</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">16665</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of null</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">16665</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:38</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">16665</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:32:54</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">16665</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 14</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">16665</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: software design</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">16665</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of root</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">16665</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:46</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">16665</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:32:54</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">16665</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 8</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">16665</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: problems</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">16665</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of software design</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">16681</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:46</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">16681</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:32:54</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">16681</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 8</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">16681</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: second list</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">16681</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of problems</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">16681</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:52</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">16681</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:32:54</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">16681</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 2</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">16681</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Observer.Interval</td>
+<td class="Message">Update Date and Duration</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">16681</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">16681</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Task</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">16681</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">16696</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">16696</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">16696</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">16696</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">16696</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">16696</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: root</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">16696</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of null</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">16696</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:38</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">16696</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:32:54</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">16696</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 16</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">16696</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: software design</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">16696</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of root</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">16712</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:46</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">16712</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:32:54</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">16712</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 10</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">16712</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: problems</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">16712</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of software design</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">16712</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:46</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">16712</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:32:54</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">16712</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 10</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">16712</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: first list</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">16712</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of problems</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">16712</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:46</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">16712</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:32:54</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">16712</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 8</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">18654</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Observable.Clock</td>
+<td class="Message">Notify observers</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">18654</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Observer.Interval</td>
+<td class="Message">Update Date and Duration</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">18654</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">18654</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Task</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">18654</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">18654</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">18654</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">18654</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">18654</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">18654</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">18654</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: root</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">18654</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of null</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">18669</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:38</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">18669</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:32:56</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">18669</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 18</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">18669</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: software design</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">18669</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of root</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">18669</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:46</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">18669</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:32:56</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">18669</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 12</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">18669</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: problems</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">18669</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of software design</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">18669</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:46</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">18669</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:32:56</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">18669</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 12</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">18669</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: second list</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">18685</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of problems</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">18685</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:52</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">18685</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:32:56</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">18685</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 4</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">18685</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Observer.Interval</td>
+<td class="Message">Update Date and Duration</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">18685</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">18685</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Task</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">18685</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">18685</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">18685</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">18685</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">18685</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">18685</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">18685</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: root</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">18701</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of null</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">18701</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:38</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">18701</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:32:56</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">18701</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 20</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">18701</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: software design</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">18701</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of root</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">18701</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:46</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">18701</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:32:56</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">18701</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 14</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">18701</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: problems</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">18701</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of software design</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">18701</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:46</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">18701</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:32:56</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">18716</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 14</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">18716</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: first list</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">18716</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of problems</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">18716</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:46</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">18716</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:32:56</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">18716</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 10</td>
+</tr>
+
+<tr class="info odd">
+<td class="RelativeTime">20241</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">INFO</td>
+<td class="Logger">core.Activity.Task</td>
+<td class="Message">Interval stops</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">20649</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Observable.Clock</td>
+<td class="Message">Notify observers</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">20649</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Observer.Interval</td>
+<td class="Message">Update Date and Duration</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">20649</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">20649</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Task</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">20649</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">20649</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">20649</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">20649</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">20649</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">20649</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">20649</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: root</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">20649</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of null</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">20649</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:38</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">20649</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:32:58</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">20665</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 22</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">20665</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: software design</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">20665</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of root</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">20665</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:46</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">20665</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:32:58</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">20665</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 16</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">20665</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: problems</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">20665</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of software design</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">20665</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:46</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">20665</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:32:58</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">20665</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 16</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">20665</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: second list</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">20665</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of problems</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">20665</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:52</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">20665</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:32:58</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">20681</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 6</td>
+</tr>
+
+<tr class="info even">
+<td class="RelativeTime">22245</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">INFO</td>
+<td class="Logger">core.Activity.Task</td>
+<td class="Message">Interval stops</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">22652</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Observable.Clock</td>
+<td class="Message">Notify observers</td>
+</tr>
+
+<tr class="info even">
+<td class="RelativeTime">24253</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">INFO</td>
+<td class="Logger">core.Activity.Task</td>
+<td class="Message">New Interval starts</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">24643</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Observable.Clock</td>
+<td class="Message">Notify observers</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">24643</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Observer.Interval</td>
+<td class="Message">Initialize Date</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">24643</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Observer.Interval</td>
+<td class="Message">Update Date and Duration</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">24643</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">24643</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Task</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">24643</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">24643</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">24643</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: root</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">24643</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of null</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">24643</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:38</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">24643</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:33:02</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">24643</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 24</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">24643</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: transportation</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">24659</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of root</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">24659</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:38</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">24659</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:33:02</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">24659</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 8</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">26648</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Observable.Clock</td>
+<td class="Message">Notify observers</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">26648</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Observer.Interval</td>
+<td class="Message">Update Date and Duration</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">26648</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">26648</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Task</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">26648</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Update Duration from Projects upwards until Project &#39;root&#39;</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">26648</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Calculate duration</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">26648</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: root</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">26648</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of null</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">26648</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:38</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">26648</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:33:04</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">26648</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 26</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">26648</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity: transportation</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">26648</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Child of root</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">26663</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Initial date: 2022-11-23 09:32:38</td>
+</tr>
+
+<tr class="trace even">
+<td class="RelativeTime">26663</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Final date: 2022-11-23 09:33:04</td>
+</tr>
+
+<tr class="trace odd">
+<td class="RelativeTime">26663</td>
+<td class="Thread">Timer-0</td>
+<td class="MDC"></td>
+<td class="Level">TRACE</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Duration: 10</td>
+</tr>
+
+<tr class="info even">
+<td class="RelativeTime">28258</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">INFO</td>
+<td class="Logger">core.Activity.Task</td>
+<td class="Message">Interval stops</td>
+</tr>
+
+<tr class="info odd">
+<td class="RelativeTime">28302</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">INFO</td>
+<td class="Logger">visitor.Visitor.SearchByTagVisitor</td>
+<td class="Message">Tag to search: &#39;java&#39;</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">28304</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">visitor.Visitor.SearchByTagVisitor</td>
+<td class="Message">Tags inside Project &#39;root&#39; : []</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">28305</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">visitor.Visitor.SearchByTagVisitor</td>
+<td class="Message">Tags inside Project &#39;software design&#39; : [java, flutter]</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">28307</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">visitor.Visitor.SearchByTagVisitor</td>
+<td class="Message">Tags inside Project &#39;problems&#39; : []</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">28309</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">visitor.Visitor.SearchByTagVisitor</td>
+<td class="Message">Tags inside Task &#39;first list&#39; : [java]</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">28310</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">visitor.Visitor.SearchByTagVisitor</td>
+<td class="Message">Tags inside Task &#39;second list&#39; : [Dart]</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">28312</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">visitor.Visitor.SearchByTagVisitor</td>
+<td class="Message">Tags inside Project &#39;project time tracker&#39; : []</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">28314</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">visitor.Visitor.SearchByTagVisitor</td>
+<td class="Message">Tags inside Task &#39;read handout&#39; : []</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">28315</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">visitor.Visitor.SearchByTagVisitor</td>
+<td class="Message">Tags inside Task &#39;first milestone&#39; : [Java, IntelliJ]</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">28316</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">visitor.Visitor.SearchByTagVisitor</td>
+<td class="Message">Tags inside Project &#39;software testing&#39; : [c++, Java, python]</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">28318</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">visitor.Visitor.SearchByTagVisitor</td>
+<td class="Message">Tags inside Project &#39;database&#39; : [SQL, python, C++]</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">28319</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">visitor.Visitor.SearchByTagVisitor</td>
+<td class="Message">Tags inside Task &#39;transportation&#39; : []</td>
+</tr>
+
+<tr class="info odd">
+<td class="RelativeTime">28320</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">INFO</td>
+<td class="Logger">visitor.Visitor.SearchByTagVisitor</td>
+<td class="Message">Activities with tag &#39;java&#39;: [core.Project@4de5031f, core.Task@67e2d983, core.Task@5d47c63f, core.Project@5ea434c8]</td>
+</tr>
+
+<tr class="info even">
+<td class="RelativeTime">28332</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">INFO</td>
+<td class="Logger">core.Observable.Clock</td>
+<td class="Message">Delete (cancel) timer ClockTask</td>
+</tr>
+
+<tr class="info odd">
+<td class="RelativeTime">28333</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">INFO</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Create JSON from Project, Task and Interval</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">28334</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Project to JSONObject</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">28349</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Activity is a Project</td>
+</tr>
+
+<tr class="info even">
+<td class="RelativeTime">28349</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">INFO</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Create JSON from Project, Task and Interval</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">28349</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Project to JSONObject</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">28349</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Activity is a Project</td>
+</tr>
+
+<tr class="info odd">
+<td class="RelativeTime">28349</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">INFO</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Create JSON from Project, Task and Interval</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">28349</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Project to JSONObject</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">28349</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Activity is a Task</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">28349</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Task</td>
+<td class="Message">Task to JSONObject</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">28349</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Observer.Interval</td>
+<td class="Message">Interval to JSONObject</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">28349</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Activity is a Task</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">28349</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Task</td>
+<td class="Message">Task to JSONObject</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">28349</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Observer.Interval</td>
+<td class="Message">Interval to JSONObject</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">28365</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity to JSONObject</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">28365</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Activity is a Project</td>
+</tr>
+
+<tr class="info odd">
+<td class="RelativeTime">28365</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">INFO</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Create JSON from Project, Task and Interval</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">28365</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Project to JSONObject</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">28365</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Activity is a Task</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">28365</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Task</td>
+<td class="Message">Task to JSONObject</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">28365</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Activity is a Task</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">28365</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Task</td>
+<td class="Message">Task to JSONObject</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">28365</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity to JSONObject</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">28365</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Already exists in JSON: Not adding</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">28365</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Already exists in JSON: Not adding</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">28365</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity to JSONObject</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">28365</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Activity is a Project</td>
+</tr>
+
+<tr class="info even">
+<td class="RelativeTime">28365</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">INFO</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Create JSON from Project, Task and Interval</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">28365</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Project to JSONObject</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">28365</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity to JSONObject</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">28381</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Already exists in JSON: Not adding</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">28381</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Already exists in JSON: Not adding</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">28381</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Activity is a Project</td>
+</tr>
+
+<tr class="info even">
+<td class="RelativeTime">28381</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">INFO</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Create JSON from Project, Task and Interval</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">28381</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Project to JSONObject</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">28381</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity to JSONObject</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">28381</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Already exists in JSON: Not adding</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">28381</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Already exists in JSON: Not adding</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">28381</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Project</td>
+<td class="Message">Activity is a Task</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">28381</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity.Task</td>
+<td class="Message">Task to JSONObject</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">28381</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Observer.Interval</td>
+<td class="Message">Interval to JSONObject</td>
+</tr>
+
+<tr class="debug even">
+<td class="RelativeTime">28381</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Observer.Interval</td>
+<td class="Message">Interval to JSONObject</td>
+</tr>
+
+<tr class="debug odd">
+<td class="RelativeTime">28381</td>
+<td class="Thread">main</td>
+<td class="MDC"></td>
+<td class="Level">DEBUG</td>
+<td class="Logger">core.Activity</td>
+<td class="Message">Activity to JSONObject</td>
+</tr>

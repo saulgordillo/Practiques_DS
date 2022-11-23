@@ -28,11 +28,10 @@ public class Task extends Activity {
    * @param tags   - Tags that may be associated with the task
    */
   public Task(String name, Project father, List<String> tags) {
-
     //Pre-condition
-    assert (!name.isEmpty()) : "Error, empty name";
-    assert (father.getName() != null);
-    assert (tags != null);
+    assert (!name.isEmpty()) : "Error: empty name";
+    assert (father.getName() != null) : "Error: empty father name";
+    assert (tags.size() >= 0) : "Error: tags size < 0";
 
     this.name = name;
     this.projectFather = father;
@@ -41,12 +40,16 @@ public class Task extends Activity {
     this.tags = tags;
 
     //Post-condition
-    assert invariant();
-    assert (!this.name.isEmpty()) : "Error, empty name";
-    assert (this.projectFather.getName() != null);
-    assert (this.tags != null);
+    assert invariant() : "Error: duration < 0 || intervals is null";
+    assert (!this.name.isEmpty()) : "Error: empty name";
+    assert (this.projectFather.getName() != null) : "Error: empty father name";
+    assert (this.intervals != null) : "Error: attribute intervals equals null (not initialized)";
+    assert (this.tags.size() == tags.size()) : "Error: this.tags is not equal (size) to parameter tags";
   }
 
+  /**
+   * @return Boolean, true if duration >= 0 and intervals != null, false otherwise
+   */
   private boolean invariant() {
     return ((duration.getSeconds() >= 0) && (intervals != null));
   }
@@ -62,9 +65,8 @@ public class Task extends Activity {
    * Calculate duration iterating through intervals to sum every Interval duration.
    */
   public void calculateDuration() {
-
     //Pre-condition
-    assert invariant();
+    assert invariant() : "Error: duration < 0 || intervals is null";
 
     this.duration = Duration.ofSeconds(0);
     loggerTask.debug("Calculate duration");
@@ -78,7 +80,7 @@ public class Task extends Activity {
     }
 
     //Post-condition
-    assert invariant();
+    assert invariant() : "Error: duration < 0 || intervals is null";
   }
 
   /**
@@ -97,7 +99,7 @@ public class Task extends Activity {
    */
   public void start() {
     //Pre-condition
-    assert invariant();
+    assert invariant() : "Error: duration < 0 || intervals is null";
 
     loggerTask.info("New Interval starts");
     Interval newInterval = new Interval(this);
@@ -106,7 +108,7 @@ public class Task extends Activity {
     clockInstance.addObserver(newInterval);
 
     //Post-condition
-    assert invariant();
+    assert invariant() : "Error: duration < 0 || intervals is null";
   }
 
   /**
@@ -115,18 +117,18 @@ public class Task extends Activity {
   public void stop() {
     int contClocks = Clock.getInstance().countObservers();
     //Pre-condition
-    assert invariant();
-    assert (!intervals.isEmpty());
-    assert (contClocks != 0);
+    assert invariant() : "Error: duration < 0 || intervals is null";
+    assert (!intervals.isEmpty()) : "Error: intervals empty";
+    assert (contClocks != 0) : "Error: not any Observer";
 
     Clock clockInstance = Clock.getInstance();
     clockInstance.deleteObserver(intervals.get(intervals.size() - 1));
     loggerTask.info("Interval stops");
 
     //Post-condition
-    assert invariant();
-    assert (!intervals.isEmpty());
-    assert (contClocks == clockInstance.countObservers() - 1);
+    assert invariant() : "Error: duration < 0 || intervals is null";
+    assert (!intervals.isEmpty()) : "Error: intervals empty";
+    assert (contClocks == clockInstance.countObservers() - 1) : "Error: Observer not removed properly";
   }
 
   /**
@@ -134,7 +136,7 @@ public class Task extends Activity {
    */
   public JSONObject taskToJSON() {
     //Pre-condition
-    assert invariant();
+    assert invariant() : "Error: duration < 0 || intervals is null";
 
     loggerTask.debug("Task to JSONObject");
 
@@ -148,9 +150,11 @@ public class Task extends Activity {
     task.put("IntervalTask", list);
 
     //Post-condition
-    assert invariant();
-    assert (list != null);
-    assert (task != null);
+    assert invariant() : "Error: duration < 0 || intervals is null";
+    assert (list != null) : "Error: JSONObject not created properly";
+    assert (list instanceof JSONArray) : "Error: list not instance of JSONArray";
+    assert (task != null) : "Error: JSONObject not created properly";
+    assert (task instanceof JSONObject) : "Error: task not instance of JSONObject";
 
     return task;
   }
