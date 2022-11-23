@@ -1,15 +1,14 @@
 package visitor;
 
-
 import core.Activity;
 import core.Interval;
 import core.Project;
 import core.Task;
+import java.util.ArrayList;
+import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Class which implements Visitor,
@@ -19,7 +18,8 @@ import java.util.List;
  * Uses Visitor pattern to do the job.
  */
 public class SearchByTagVisitor implements Visitor {
-  static Logger loggerSearchByTagVisitor = LoggerFactory.getLogger("visitor.Visitor.SearchByTagVisitor");
+  static final Logger loggerSearchByTagVisitor =
+          LoggerFactory.getLogger("visitor.Visitor.SearchByTagVisitor");
 
   private final List<Activity> activitiesWithTag = new ArrayList<>();
   private String tagToSearch;
@@ -99,7 +99,8 @@ public class SearchByTagVisitor implements Visitor {
 
     root.accept(this);
 
-    loggerSearchByTagVisitor.info("Activities with tag '" + this.tagToSearch + "': " + this.activitiesWithTag);
+    loggerSearchByTagVisitor.info("Activities with tag '" + this.tagToSearch + "': "
+            + this.activitiesWithTag);
     return activitiesWithTag;
   }
 }

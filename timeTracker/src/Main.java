@@ -2,13 +2,12 @@ import core.Activity;
 import core.Clock;
 import core.Project;
 import core.Task;
-import org.json.JSONObject;
-import visitor.SearchByTagVisitor;
-
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONObject;
+import visitor.SearchByTagVisitor;
 
 public class Main {
 

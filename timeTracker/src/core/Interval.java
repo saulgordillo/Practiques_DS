@@ -1,23 +1,22 @@
 package core;
 
-import org.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import visitor.Visitor;
-
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.Observable;
 import java.util.Observer;
+import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import visitor.Visitor;
 
 /**
  * Class which implements Observer to update when Clock changes,
  * this class saves the info of an interval of time of a Task.
  */
 public class Interval implements Observer {
-  static Logger loggerInterval = LoggerFactory.getLogger("core.Observer.Interval");
+  static final Logger loggerInterval = LoggerFactory.getLogger("core.Observer.Interval");
 
   //Change DateTimeFormatter
   final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -89,6 +88,7 @@ public class Interval implements Observer {
   /**
    * @return JSONObject containing the info of the Interval class object
    */
+  @SuppressWarnings("checkstyle:AbbreviationAsWordInName")
   public JSONObject intervalToJSON() {
     loggerInterval.debug("Interval to JSONObject");
     JSONObject interval = new JSONObject();
@@ -96,7 +96,8 @@ public class Interval implements Observer {
     interval.put("initialDate", initialDate.format(formatter));
     interval.put("finalDate", finalDate.format(formatter));
     interval.put("task", myTask.name);
-    interval.put("duration", Math.round(this.duration.getSeconds() + ((double) this.duration.getNano() / 1000000000)));
+    interval.put("duration", Math.round(this.duration.getSeconds()
+            + ((double) this.duration.getNano() / 1000000000)));
 
     return interval;
   }

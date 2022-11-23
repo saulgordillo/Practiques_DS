@@ -1,14 +1,13 @@
 package core;
 
+import java.time.Duration;
+import java.util.LinkedList;
+import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import visitor.Visitor;
-
-import java.time.Duration;
-import java.util.LinkedList;
-import java.util.List;
 
 /**
  * Class which extends Activity and implements
@@ -16,7 +15,7 @@ import java.util.List;
  * uses Composite pattern together with Activity and Project.
  */
 public class Task extends Activity {
-  static Logger loggerTask = LoggerFactory.getLogger("core.Activity.Task");
+  static final Logger loggerTask = LoggerFactory.getLogger("core.Activity.Task");
 
   private final List<Interval> intervals;
 
@@ -31,7 +30,6 @@ public class Task extends Activity {
     //Pre-condition
     assert (!name.isEmpty()) : "Error: empty name";
     assert (father.getName() != null) : "Error: empty father name";
-    assert (tags.size() >= 0) : "Error: tags size < 0";
 
     this.name = name;
     this.projectFather = father;
@@ -44,7 +42,8 @@ public class Task extends Activity {
     assert (!this.name.isEmpty()) : "Error: empty name";
     assert (this.projectFather.getName() != null) : "Error: empty father name";
     assert (this.intervals != null) : "Error: attribute intervals equals null (not initialized)";
-    assert (this.tags.size() == tags.size()) : "Error: this.tags is not equal (size) to parameter tags";
+    assert (this.tags.size() == tags.size()) :
+            "Error: this.tags is not equal (size) to parameter tags";
   }
 
   /**
@@ -128,12 +127,14 @@ public class Task extends Activity {
     //Post-condition
     assert invariant() : "Error: duration < 0 || intervals is null";
     assert (!intervals.isEmpty()) : "Error: intervals empty";
-    assert (contClocks == clockInstance.countObservers() - 1) : "Error: Observer not removed properly";
+    assert (contClocks == clockInstance.countObservers() - 1) :
+            "Error: Observer not removed properly";
   }
 
   /**
    * @return JSONObject containing the info of the Task class object
    */
+  @SuppressWarnings("checkstyle:AbbreviationAsWordInName")
   public JSONObject taskToJSON() {
     //Pre-condition
     assert invariant() : "Error: duration < 0 || intervals is null";
@@ -151,10 +152,6 @@ public class Task extends Activity {
 
     //Post-condition
     assert invariant() : "Error: duration < 0 || intervals is null";
-    assert (list != null) : "Error: JSONObject not created properly";
-    assert (list instanceof JSONArray) : "Error: list not instance of JSONArray";
-    assert (task != null) : "Error: JSONObject not created properly";
-    assert (task instanceof JSONObject) : "Error: task not instance of JSONObject";
 
     return task;
   }

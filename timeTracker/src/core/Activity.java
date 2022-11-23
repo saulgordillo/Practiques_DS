@@ -1,15 +1,14 @@
 package core;
 
-import org.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import visitor.Visitor;
-
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import visitor.Visitor;
 
 /**
  * Abstract class that contains the shared
@@ -17,7 +16,7 @@ import java.util.List;
  * also implements Composite pattern.
  */
 public abstract class Activity {
-  static Logger loggerActivity = LoggerFactory.getLogger("core.Activity");
+  static final Logger loggerActivity = LoggerFactory.getLogger("core.Activity");
 
   //Change DateTimeFormatter
   final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -93,6 +92,7 @@ public abstract class Activity {
    *
    * @param act - Objecte JSON
    */
+  @SuppressWarnings("checkstyle:AbbreviationAsWordInName")
   public void activityToJSON(JSONObject act) {
     loggerActivity.debug("Activity to JSONObject");
     act.put("duration", Math.round(this.duration.getSeconds()
@@ -132,7 +132,7 @@ public abstract class Activity {
   public abstract void accept(Visitor visitor);
 
   /**
-   * Print Activity info
+   * Print Activity info.
    */
   public void printInfo() {
     loggerActivity.trace("Activity: " + this.getName());
@@ -143,6 +143,7 @@ public abstract class Activity {
     }
     loggerActivity.trace("Initial date: " + this.initialDate.format(formatter));
     loggerActivity.trace("Final date: " + this.finalDate.format(formatter));
-    loggerActivity.trace("Duration: " + Math.round(this.duration.getSeconds() + ((double) this.duration.getNano() / 1000000000)));
+    loggerActivity.trace("Duration: " + Math.round(this.duration.getSeconds()
+            + ((double) this.duration.getNano() / 1000000000)));
   }
 }
