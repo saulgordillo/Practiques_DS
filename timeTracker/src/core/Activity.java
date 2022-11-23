@@ -34,12 +34,21 @@ public abstract class Activity {
   }
 
   /**
-   * Getter that returns the name of the activity.
+   * Getter that returns the name of the Activity.
    *
-   * @return Name of the activity
+   * @return Name of the Activity
    */
   public String getName() {
     return this.name;
+  }
+
+  /**
+   * Getter that returns the name of the father of this Activity.
+   *
+   * @return Name of the father of the Activity
+   */
+  public String getFatherName() {
+    return this.projectFather.getName();
   }
 
   /**
@@ -111,6 +120,8 @@ public abstract class Activity {
     if (this.projectFather != null) {
       this.projectFather.printActivity();
     }
+
+    this.printInfo();
   }
 
   public abstract void accept(Visitor visitor);
@@ -119,19 +130,14 @@ public abstract class Activity {
    * Print Activity info
    */
   public void printInfo() {
-    loggerActivity.info("Activity: \t");
-    loggerActivity.info(this.name);
-    loggerActivity.info("\tChild of ");
+    loggerActivity.trace("Activity: " + this.getName());
     if (this.projectFather != null) {
-      loggerActivity.info(this.projectFather.getName());
+      loggerActivity.trace("Child of " + this.getFatherName());
     } else {
-      loggerActivity.info("null");
+      loggerActivity.trace("Child of null");
     }
-    loggerActivity.info("\tInitial date: \t");
-    loggerActivity.info(this.initialDate.toString());
-    loggerActivity.info("\tFinal date: \t");
-    loggerActivity.info(this.finalDate.toString());
-    loggerActivity.info("\tDuration: \t");
-    loggerActivity.info("" + Math.round(this.duration.getSeconds() + ((double) this.duration.getNano() / 1000000000)));
+    loggerActivity.trace("Initial date: " + this.initialDate.format(formatter));
+    loggerActivity.trace("Final date: " + this.finalDate.format(formatter));
+    loggerActivity.trace("Duration: " + Math.round(this.duration.getSeconds() + ((double) this.duration.getNano() / 1000000000)));
   }
 }
