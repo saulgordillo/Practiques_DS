@@ -2,12 +2,13 @@ import core.Activity;
 import core.Clock;
 import core.Project;
 import core.Task;
+import org.json.JSONObject;
+import visitor.SearchByTagVisitor;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONObject;
-import visitor.SearchByTagVisitor;
 
 public class Main {
 
@@ -175,11 +176,11 @@ public class Main {
     Project projectRoot = new Project(true);
 
     // Test timeTracker implementation
-    testCountingTimeAndCreateTree(projectRoot);
+    //testCountingTimeAndCreateTree(projectRoot);
 
     // Test search implementation
-    //createTree(projectRoot);
-    String tagToSearch = "java";
+    createTree(projectRoot);
+    String tagToSearch = "Java";
     System.out.print("\n\nTag to search: " + tagToSearch + "\n");
     List<Activity> activitiesWithTag = testSearchByTag(projectRoot, tagToSearch);
     System.out.print("Activities with tag '" + tagToSearch
