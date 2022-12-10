@@ -14,10 +14,10 @@
         </encoder>
         <file>log.html</file>
     </appender>
-    <root level="debug">
+    <root level="info">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="FILE_HTML"/>
     </root>
-    <logger name="core" level="trace"/>
-    <logger name="visitor" level="debug"/>
+    <logger name="core" level="info"/>
+    <logger name="visitor" level="info"/>
 </configuration>
