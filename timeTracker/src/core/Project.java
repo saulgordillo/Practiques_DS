@@ -163,16 +163,15 @@ public class Project extends Activity {
 
     if (this.id == id) {
       return this;
-    } else {
-      for (Activity activity : activities) {
-        activityWithId = activity.findActivityById(id);
+    }
+
+    for (Activity activity : activities) {
+      activityWithId = activity.findActivityById(id);
+      if (activityWithId != null) {
+        return activityWithId;
       }
     }
 
-    if (activityWithId != null) {
-      return activityWithId;
-    } else {
-      return null;
-    }
+    return null;
   }
 }
