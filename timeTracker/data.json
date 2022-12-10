@@ -1,0 +1,81 @@
+{
+  "duration": 26,
+  "finalDate": "2022-12-10 04:03:47",
+  "activities": [
+    {
+      "duration": 16,
+      "finalDate": "2022-12-10 04:03:55",
+      "activities": [
+        {
+          "duration": 16,
+          "finalDate": "2022-12-10 04:03:55",
+          "name": "problems",
+          "id": 5,
+          "class": "project",
+          "initialDate": "2022-12-10 04:03:55"
+        },
+        {
+          "duration": 0,
+          "finalDate": null,
+          "name": "project time tracker",
+          "id": 6,
+          "class": "project",
+          "initialDate": null
+        }
+      ],
+      "name": "software design",
+      "id": 1,
+      "class": "project",
+      "initialDate": "2022-12-10 04:03:55"
+    },
+    {
+      "duration": 0,
+      "finalDate": null,
+      "activities": [],
+      "name": "software testing",
+      "id": 2,
+      "class": "project",
+      "initialDate": null
+    },
+    {
+      "duration": 0,
+      "finalDate": null,
+      "activities": [],
+      "name": "database",
+      "id": 3,
+      "class": "project",
+      "initialDate": null
+    },
+    {
+      "duration": 10,
+      "finalDate": "2022-12-10 04:03:47",
+      "intervals": [
+        {
+          "duration": 6,
+          "finalDate": "2022-12-10 04:03:53",
+          "active": false,
+          "id": 11,
+          "class": "interval",
+          "initialDate": "2022-12-10 04:03:47"
+        },
+        {
+          "duration": 4,
+          "finalDate": "2022-12-10 04:04:13",
+          "active": false,
+          "id": 14,
+          "class": "interval",
+          "initialDate": "2022-12-10 04:04:09"
+        }
+      ],
+      "name": "transportation",
+      "active": false,
+      "id": 4,
+      "class": "task",
+      "initialDate": "2022-12-10 04:03:47"
+    }
+  ],
+  "name": "root",
+  "id": 0,
+  "class": "project",
+  "initialDate": "2022-12-10 04:03:47"
+}
