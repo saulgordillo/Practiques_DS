@@ -125,7 +125,7 @@ public class WebServer {
           assert (activity != null);
           Task task = (Task) activity;
           task.start();
-          body = "{ started task = { id = " + id + ", name = " + task.getName() + " } }";
+          body = "{}";
           break;
         }
         case "stop": {
@@ -134,7 +134,7 @@ public class WebServer {
           assert (activity != null);
           Task task = (Task) activity;
           task.stop();
-          body = "{ stopped task = { id = " + id + ", name = " + task.getName() + " } }";
+          body = "{}";
           break;
         }
         // TODO: add new task, project
