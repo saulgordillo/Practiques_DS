@@ -1,13 +1,15 @@
 package core;
 
-import java.time.Duration;
-import java.util.LinkedList;
-import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import provider.IdProvider;
 import visitor.Visitor;
+
+import java.time.Duration;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Class which extends Activity and implements
@@ -18,6 +20,8 @@ public class Task extends Activity {
   static final Logger loggerTask = LoggerFactory.getLogger("core.Activity.Task");
 
   private final List<Interval> intervals;
+
+  private boolean active = false;
 
   /**
    * Constructor to create Task from params.
@@ -37,13 +41,16 @@ public class Task extends Activity {
     this.intervals = new LinkedList<>();
     this.tags = tags;
 
+    IdProvider uniqueIdProviderInstance = IdProvider.getInstance();
+    this.id = uniqueIdProviderInstance.getId();
+
     //Post-condition
     assert invariant() : "Error: duration < 0 || intervals is null";
     assert (!this.name.isEmpty()) : "Error: empty name";
     assert (this.projectFather.getName() != null) : "Error: empty father name";
     assert (this.intervals != null) : "Error: attribute intervals equals null (not initialized)";
     assert (this.tags.size() == tags.size()) :
-            "Error: this.tags is not equal (size) to parameter tags";
+        "Error: this.tags is not equal (size) to parameter tags";
   }
 
   /**
@@ -58,6 +65,10 @@ public class Task extends Activity {
    */
   public List<String> getTags() {
     return this.tags;
+  }
+
+  public boolean getActive() {
+    return this.active;
   }
 
   /**
@@ -103,8 +114,10 @@ public class Task extends Activity {
     loggerTask.info("New Interval starts");
     Interval newInterval = new Interval(this);
     this.intervals.add(newInterval);
+    newInterval.setActive(true);
     Clock clockInstance = Clock.getInstance();
     clockInstance.addObserver(newInterval);
+    this.active = true;
 
     //Post-condition
     assert invariant() : "Error: duration < 0 || intervals is null";
@@ -118,41 +131,52 @@ public class Task extends Activity {
     //Pre-condition
     assert invariant() : "Error: duration < 0 || intervals is null";
     assert (!intervals.isEmpty()) : "Error: intervals empty";
-    assert (contClocks != 0) : "Error: not any Observer";
+    assert (contClocks != 0) : "Error: not any Observer to delete";
 
     Clock clockInstance = Clock.getInstance();
-    clockInstance.deleteObserver(intervals.get(intervals.size() - 1));
+    Interval intervalToDelete = intervals.get(intervals.size() - 1);
+    clockInstance.deleteObserver(intervalToDelete);
+    intervals.get(intervals.size() - 1).setActive(false);
     loggerTask.info("Interval stops");
+    this.active = false;
+
+    contClocks = Clock.getInstance().countObservers();
 
     //Post-condition
     assert invariant() : "Error: duration < 0 || intervals is null";
     assert (!intervals.isEmpty()) : "Error: intervals empty";
-    assert (contClocks == clockInstance.countObservers() - 1) :
-            "Error: Observer not removed properly";
+    assert (contClocks == clockInstance.countObservers()) :
+        "Error: Observer not removed properly";
   }
 
   /**
    * @return JSONObject containing the info of the Task class object
    */
-  @SuppressWarnings("checkstyle:AbbreviationAsWordInName")
-  public JSONObject taskToJSON() {
-    //Pre-condition
-    assert invariant() : "Error: duration < 0 || intervals is null";
+  public JSONObject toJson(int depth) {
+    // depth not used here
+    JSONObject json = new JSONObject();
+    json.put("class", "task");
+    super.toJson(json);
+    json.put("active", active);
 
-    loggerTask.debug("Task to JSONObject");
-
-    JSONArray list = new JSONArray();
-    JSONObject task = new JSONObject();
-
-    for (Interval interval : intervals) {
-      list.put(interval.intervalToJSON());
+    if (depth > 0) {
+      JSONArray jsonIntervals = new JSONArray();
+      for (Interval interval : intervals) {
+        jsonIntervals.put(interval.toJson());
+      }
+      json.put("intervals", jsonIntervals);
+    } else {
+      json.put("intervals", new JSONArray());
     }
 
-    task.put("IntervalTask", list);
+    return json;
+  }
 
-    //Post-condition
-    assert invariant() : "Error: duration < 0 || intervals is null";
+  public Activity findActivityById(int id) {
+    if (this.id == id) {
+      return this;
+    }
 
-    return task;
+    return null;
   }
 }

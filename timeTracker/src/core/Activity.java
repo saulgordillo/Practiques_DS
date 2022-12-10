@@ -1,14 +1,15 @@
 package core;
 
+import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import visitor.Visitor;
+
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import visitor.Visitor;
 
 /**
  * Abstract class that contains the shared
@@ -18,7 +19,7 @@ import visitor.Visitor;
 public abstract class Activity {
   static final Logger loggerActivity = LoggerFactory.getLogger("core.Activity");
 
-  //Change DateTimeFormatter
+  // Change DateTimeFormatter
   final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
   protected String name;
   protected LocalDateTime initialDate = null;
@@ -27,15 +28,16 @@ public abstract class Activity {
   protected Project projectFather;
   protected boolean isRoot = false;
   protected List<String> tags = new ArrayList<>();
+  protected int id;
 
   /**
    * Default Activity constructor.
    */
   public Activity() {
-    this.name = "";
-    this.projectFather = null;
     this.duration = Duration.ofSeconds(0);
   }
+
+  public abstract JSONObject toJson(int depth);
 
   /**
    * Getter that returns the name of the Activity.
@@ -88,31 +90,6 @@ public abstract class Activity {
   }
 
   /**
-   * Creates JSON item from the activity JSONObject.
-   *
-   * @param act - Objecte JSON
-   */
-  @SuppressWarnings("checkstyle:AbbreviationAsWordInName")
-  public void activityToJSON(JSONObject act) {
-    loggerActivity.debug("Activity to JSONObject");
-    act.put("duration", Math.round(this.duration.getSeconds()
-        + ((double) this.duration.getNano() / 1000000000)));
-
-    if (initialDate != null) {
-      act.put("initialDate", initialDate.format(formatter));
-    } else {
-      loggerActivity.debug("Already exists in JSON: Not adding");
-    }
-    if (finalDate != null) {
-      act.put("finalDate", finalDate.format(formatter));
-    } else {
-      loggerActivity.debug("Already exists in JSON: Not adding");
-    }
-
-    act.put("name", name);
-  }
-
-  /**
    * Print Activity info (Name, Initial date, Final date and Duration).
    */
   public void printActivity() {
@@ -126,7 +103,7 @@ public abstract class Activity {
       this.projectFather.printActivity();
     }
 
-    this.printInfo();
+    this.logInfo();
   }
 
   public abstract void accept(Visitor visitor);
@@ -134,7 +111,7 @@ public abstract class Activity {
   /**
    * Print Activity info.
    */
-  public void printInfo() {
+  public void logInfo() {
     loggerActivity.trace("Activity: " + this.getName());
     if (this.projectFather != null) {
       loggerActivity.trace("Child of " + this.getFatherName());
@@ -144,6 +121,16 @@ public abstract class Activity {
     loggerActivity.trace("Initial date: " + this.initialDate.format(formatter));
     loggerActivity.trace("Final date: " + this.finalDate.format(formatter));
     loggerActivity.trace("Duration: " + Math.round(this.duration.getSeconds()
-            + ((double) this.duration.getNano() / 1000000000)));
+        + ((double) this.duration.getNano() / 1000000000)));
   }
+
+  protected void toJson(JSONObject json) {
+    json.put("id", this.id);
+    json.put("name", this.name);
+    json.put("initialDate", this.initialDate == null ? JSONObject.NULL : this.formatter.format(this.initialDate));
+    json.put("finalDate", this.finalDate == null ? JSONObject.NULL : this.formatter.format(this.initialDate));
+    json.put("duration", Math.round(this.duration.getSeconds() + ((double) this.duration.getNano() / 1000000000)));
+  }
+
+  public abstract Activity findActivityById(int id);
 }
