@@ -30,28 +30,28 @@ public class Task extends Activity {
    * @param father - Father of the task
    * @param tags   - Tags that may be associated with the task
    */
-  public Task(String name, Project father, List<String> tags) {
-    //Pre-condition
-    assert (!name.isEmpty()) : "Error: empty name";
-    assert (father.getName() != null) : "Error: empty father name";
+  public Task(String name, Project father) {//, List<String> tags) {
+        //Pre-condition
+        assert (!name.isEmpty()) : "Error: empty name";
+        assert (father.getName() != null) : "Error: empty father name";
 
-    this.name = name;
-    this.projectFather = father;
-    father.addChild(this);
-    this.intervals = new LinkedList<>();
-    this.tags = tags;
+        this.name = name;
+        this.projectFather = father;
+        father.addChild(this);
+        this.intervals = new LinkedList<>();
+        //this.tags = tags;
 
-    IdProvider uniqueIdProviderInstance = IdProvider.getInstance();
-    this.id = uniqueIdProviderInstance.getId();
+        IdProvider uniqueIdProviderInstance = IdProvider.getInstance();
+        this.id = uniqueIdProviderInstance.getId();
 
-    //Post-condition
-    assert invariant() : "Error: duration < 0 || intervals is null";
-    assert (!this.name.isEmpty()) : "Error: empty name";
-    assert (this.projectFather.getName() != null) : "Error: empty father name";
-    assert (this.intervals != null) : "Error: attribute intervals equals null (not initialized)";
-    assert (this.tags.size() == tags.size()) :
-        "Error: this.tags is not equal (size) to parameter tags";
-  }
+        //Post-condition
+        assert invariant() : "Error: duration < 0 || intervals is null";
+        assert (!this.name.isEmpty()) : "Error: empty name";
+        assert (this.projectFather.getName() != null) : "Error: empty father name";
+        assert (this.intervals != null) : "Error: attribute intervals equals null (not initialized)";
+        assert (this.tags.size() == tags.size()) :
+          "Error: this.tags is not equal (size) to parameter tags";
+    }
 
   /**
    * @return Boolean, true if duration >= 0 and intervals != null, false otherwise

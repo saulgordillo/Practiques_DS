@@ -137,6 +137,25 @@ public class WebServer {
           body = "{}";
           break;
         }
+		case "newProject": {
+                    int id = Integer.parseInt(tokens[1]);
+                    String name = tokens[2].toString();
+                    //tag.add(tokens[3].toString());
+                    Project project = new Project(name, (Project) findActivityById(id));//, tag);
+
+                    break;
+                }
+
+                case "newTask": {
+
+                    int id = Integer.parseInt(tokens[1]);
+                    String name = tokens[2].toString();
+                    //tag.add(tokens[3].toString());
+
+                    Task task = new Task(name, (Project) findActivityById(id));//, tag);
+
+                    break;
+                }
         // TODO: add new task, project
         // TODO: edit task, project properties
         default:
