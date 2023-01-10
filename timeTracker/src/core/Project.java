@@ -42,30 +42,30 @@ public class Project extends Activity {
    * @param father - Who is the father of the project
    * @param tags   - Tags associated with the project
    */
-  public Project(String name, Project father){//, List<String> tags) {
-        //Pre-conditions
-        assert (!name.isEmpty()) : "Error: empty name";
-        assert (father.getName() != null) : "Error: empty father name";
+  public Project(String name, Project father) {//, List<String> tags) {
+    //Pre-conditions
+    assert (!name.isEmpty()) : "Error: empty name";
+    assert (father.getName() != null) : "Error: empty father name";
 
-        this.name = name;
-        this.projectFather = father;
-        this.activities = new LinkedList<>();
-        loggerProject.info("Add Project '" + this.getName() + "' as child of Project father '"
-          + father.getName() + "'");
-        father.addChild(this);
-       // this.tags = tags;
+    this.name = name;
+    this.projectFather = father;
+    this.activities = new LinkedList<>();
+    loggerProject.info("Add Project '" + this.getName() + "' as child of Project father '"
+        + father.getName() + "'");
+    father.addChild(this);
+    // this.tags = tags;
 
-        IdProvider uniqueIdProviderInstance = IdProvider.getInstance();
-        this.id = uniqueIdProviderInstance.getId();
+    IdProvider uniqueIdProviderInstance = IdProvider.getInstance();
+    this.id = uniqueIdProviderInstance.getId();
 
-        //Post-conditions
-        assert invariant() : "Error: duration < 0";
-        assert (!this.name.isEmpty()) : "Error: empty name";
-        assert (this.projectFather != null) : "Error: projectFather is null";
-        assert (this.projectFather.getName() != null) : "Error: empty father name";
-        assert (this.tags.size() == tags.size()) :
-          "Error: this.tags is not equal (size) to parameter tags";
-    }
+    //Post-conditions
+    assert invariant() : "Error: duration < 0";
+    assert (!this.name.isEmpty()) : "Error: empty name";
+    assert (this.projectFather != null) : "Error: projectFather is null";
+    assert (this.projectFather.getName() != null) : "Error: empty father name";
+    assert (this.tags.size() == tags.size()) :
+        "Error: this.tags is not equal (size) to parameter tags";
+  }
 
   /**
    * @return Boolean, true if duration >= 0, false otherwise
