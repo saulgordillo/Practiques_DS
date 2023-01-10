@@ -10,6 +10,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.nio.charset.StandardCharsets;
 import java.util.StringTokenizer;
 
 // Based on
@@ -140,21 +141,18 @@ public class WebServer {
         }
         case "create_project": {
           int id = Integer.parseInt(tokens[1]);
-          String name = tokens[2].toString();
+          String nameEncoded = tokens[2];
+          String nameDecoded = java.net.URLDecoder.decode(nameEncoded, StandardCharsets.UTF_8);
           //tag.add(tokens[3].toString());
-          Project project = new Project(name, (Project) findActivityById(id));//, tag);
-
+          Project project = new Project(nameDecoded, (Project) findActivityById(id));//, tag);
           break;
         }
-
         case "create_task": {
-
           int id = Integer.parseInt(tokens[1]);
-          String name = tokens[2].toString();
+          String nameEncoded = tokens[2];
+          String nameDecoded = java.net.URLDecoder.decode(nameEncoded, StandardCharsets.UTF_8);
           //tag.add(tokens[3].toString());
-
-          Task task = new Task(name, (Project) findActivityById(id));//, tag);
-
+          Task task = new Task(nameDecoded, (Project) findActivityById(id));//, tag);
           break;
         }
         // TODO: add new task, project
