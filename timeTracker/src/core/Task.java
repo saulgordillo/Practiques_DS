@@ -118,6 +118,7 @@ public class Task extends Activity {
     Clock clockInstance = Clock.getInstance();
     clockInstance.addObserver(newInterval);
     this.active = true;
+    this.projectFather.updateActiveChildren(true);
 
     //Post-condition
     assert invariant() : "Error: duration < 0 || intervals is null";
@@ -139,6 +140,7 @@ public class Task extends Activity {
     intervals.get(intervals.size() - 1).setActive(false);
     loggerTask.info("Interval stops");
     this.active = false;
+    this.projectFather.updateActiveChildren(false);
 
     contClocks = Clock.getInstance().countObservers();
 

@@ -35,6 +35,7 @@ public abstract class Activity {
    */
   public Activity() {
     this.duration = Duration.ofSeconds(0);
+    this.initialDate = LocalDateTime.now();
   }
 
   public abstract JSONObject toJson(int depth);

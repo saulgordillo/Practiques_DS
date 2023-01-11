@@ -22,6 +22,8 @@ public class Project extends Activity {
 
   protected final List<Activity> activities;
 
+  boolean activeChildren = false;
+
   /**
    * Constructor to create the Project root.
    */
@@ -106,6 +108,19 @@ public class Project extends Activity {
     return this.activities;
   }
 
+  public boolean getActiveChildren() {
+    return this.activeChildren;
+  }
+
+  public void updateActiveChildren(boolean active) {
+    if (!this.isRoot) {
+      this.activeChildren = active;
+      this.projectFather.updateActiveChildren(active);
+    } else {
+      this.activeChildren = active;
+    }
+  }
+
   /**
    * Calculate duration iterating through activities to sum every Activity duration.
    */
@@ -145,6 +160,7 @@ public class Project extends Activity {
     JSONObject json = new JSONObject();
     json.put("class", "project");
     super.toJson(json);
+    json.put("activeChildren", this.activeChildren);
 
     if (depth > 0) {
       JSONArray jsonActivities = new JSONArray();

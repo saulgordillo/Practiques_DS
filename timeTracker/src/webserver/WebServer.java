@@ -145,6 +145,7 @@ public class WebServer {
           String nameDecoded = java.net.URLDecoder.decode(nameEncoded, StandardCharsets.UTF_8);
           //tag.add(tokens[3].toString());
           Project project = new Project(nameDecoded, (Project) findActivityById(id));//, tag);
+          body = "{}";
           break;
         }
         case "create_task": {
@@ -153,9 +154,23 @@ public class WebServer {
           String nameDecoded = java.net.URLDecoder.decode(nameEncoded, StandardCharsets.UTF_8);
           //tag.add(tokens[3].toString());
           Task task = new Task(nameDecoded, (Project) findActivityById(id));//, tag);
+          body = "{}";
           break;
         }
-        // TODO: add new task, project
+        /*
+        case "search_by_tag": {
+          String tagToSearch = tokens[1];
+          Activity root = findActivityById(0);
+          SearchByTagVisitor sbt = new SearchByTagVisitor();
+          List<Activity> activitiesWithTag = sbt.searchByTag(root, tagToSearch);
+          body = "{";
+          for (Activity activity : activitiesWithTag) {
+            body += activity.toJson(1);
+          }
+          body += "}";
+          break;
+        }
+        */
         // TODO: edit task, project properties
         default:
           assert false;
